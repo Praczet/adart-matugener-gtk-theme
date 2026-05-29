@@ -1,0 +1,51 @@
+/*
+ * gtk-scrollbar.css
+ * Scrollbars.
+ */
+
+scrollbar trough {
+  background-color: alpha(@window_fg_color, 0.08);
+}
+
+scrollbar button,
+scrollbar button:hover,
+scrollbar button:active,
+scrollbar button:checked {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 8px;
+  min-width: 8px;
+  padding: 0;
+}
+
+scrollbar.vertical button {
+  min-height: 10px;
+  min-width: 6px;
+}
+
+scrollbar.horizontal button {
+  min-height: 6px;
+  min-width: 10px;
+}
+
+scrollbar slider {
+  background-color: alpha(@window_fg_color, 0.35);
+  border-radius: 999px;
+  min-width: 6px;
+  min-height: 6px;
+}
+
+scrollbar slider:hover {
+  background-color: alpha(@accent_bg_color, 0.8);
+}
+
+scrollbar slider:active {
+  background-color: @accent_bg_color;
+}
+
+scrollbar slider:backdrop {
+  background-color: alpha(@insensitive_fg_color, 0.28);
+}

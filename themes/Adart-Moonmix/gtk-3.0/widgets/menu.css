@@ -1,0 +1,137 @@
+/*
+ * gtk-menu.css
+ * Menus, popovers, context menus, and classic GTK menubar.
+ */
+
+/* Menus / popovers */
+
+menu,
+.menu,
+.context-menu,
+popover,
+popover.background {
+  background-color: @popover_bg_color;
+  color: @popover_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  padding: 4px;
+}
+
+menu:backdrop,
+.menu:backdrop,
+.context-menu:backdrop,
+popover:backdrop,
+popover.background:backdrop {
+  background-color: @popover_bg_color;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+menuitem,
+.menuitem,
+modelbutton {
+  background-color: transparent;
+  color: @popover_fg_color;
+  border-radius: 4px;
+  min-height: 26px;
+  padding: 5px 12px;
+}
+
+menuitem:hover,
+menuitem:selected,
+.menuitem:hover,
+.menuitem:selected,
+modelbutton:hover,
+modelbutton:selected {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}
+
+menuitem label,
+.menuitem label,
+modelbutton label {
+  color: inherit;
+}
+
+menu separator,
+.menu separator,
+popover separator {
+  background-color: @borders;
+  margin: 4px 6px;
+  min-height: 1px;
+}
+
+menuitem:disabled,
+.menuitem:disabled,
+modelbutton:disabled {
+  color: @insensitive_fg_color;
+}
+
+/* Menubar: File / Edit / View / ... */
+
+menubar,
+.menubar {
+  background-color: @headerbar_bg_color;
+  background-image: none;
+  color: @headerbar_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+menubar:backdrop,
+.menubar:backdrop {
+  background-color: @headerbar_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}
+
+menubar > menuitem,
+.menubar > menuitem {
+  background-color: transparent;
+  background-image: none;
+  color: @headerbar_fg_color;
+  border-color: transparent;
+  box-shadow: none;
+
+  border-radius: 4px;
+  min-height: 24px;
+  padding: 4px 10px;
+}
+
+menubar > menuitem:hover,
+menubar > menuitem:selected,
+menubar > menuitem:active,
+.menubar > menuitem:hover,
+.menubar > menuitem:selected,
+.menubar > menuitem:active {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @window_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+menubar > menuitem:focus,
+.menubar > menuitem:focus {
+  background-color: alpha(@accent_bg_color, 0.35);
+  background-image: none;
+  color: @window_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+menubar > menuitem:backdrop,
+.menubar > menuitem:backdrop {
+  background-color: transparent;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+menubar > menuitem label,
+.menubar > menuitem label {
+  color: inherit;
+}

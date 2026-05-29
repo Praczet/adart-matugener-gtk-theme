@@ -1,0 +1,61 @@
+/*
+ * gtk-label.css
+ * Label and text color normalization.
+ */
+
+label {
+  color: inherit;
+}
+
+label,
+button label,
+row label,
+list row label,
+frame label,
+notebook label,
+dialog label {
+  color: @window_fg_color;
+}
+
+label:disabled,
+button:disabled label,
+row:disabled label,
+list row:disabled label {
+  color: @insensitive_fg_color;
+}
+
+dim-label,
+.dim-label,
+label.dim-label {
+  color: @insensitive_fg_color;
+}
+
+link,
+*:link,
+label link,
+label:link {
+  color: @link_color;
+}
+
+link:hover,
+*:link:hover,
+label link:hover,
+label:link:hover {
+  color: mix(@link_color, @window_fg_color, 0.22);
+}
+
+link:visited,
+*:visited,
+label link:visited,
+label:visited {
+  color: @link_visited_color;
+}
+
+/* Tooltips */
+
+tooltip,
+tooltip.background {
+  background-color: @popover_bg_color;
+  color: @popover_fg_color;
+  border-color: @borders;
+}

@@ -1,0 +1,309 @@
+/*
+ * gtk-control.css
+ * Scales, sliders, progress bars, checks, radios, and switches.
+ */
+
+/* Progress / scales */
+
+progressbar progress,
+scale highlight {
+  background-color: @accent_bg_color;
+  border-radius: 999px;
+}
+
+progressbar trough,
+scale trough {
+  background-color: @surface_container_color;
+  border-radius: 999px;
+}
+
+scale {
+  color: @window_fg_color;
+}
+
+scale trough {
+  background-color: @surface_container_color;
+  background-image: none;
+  border-color: @borders;
+  border-radius: 999px;
+  box-shadow: none;
+  min-height: 6px;
+  min-width: 6px;
+}
+
+scale.horizontal trough {
+  min-height: 6px;
+}
+
+scale.vertical trough {
+  min-width: 6px;
+}
+
+scale highlight {
+  background-color: @accent_bg_color;
+  background-image: none;
+  border-color: @accent_bg_color;
+  border-radius: 999px;
+  box-shadow: none;
+  min-height: 6px;
+  min-width: 6px;
+}
+
+scale slider {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+
+  min-width: 17px;
+  min-height: 17px;
+  border-radius: 999px;
+}
+
+scale slider:hover {
+  background-color: @accent_color;
+  background-image: none;
+  border-color: @accent_color;
+}
+
+scale slider:active {
+  background-color: @accent_bg_color;
+  background-image: none;
+  border-color: @accent_bg_color;
+}
+
+/* Backdrop scales */
+
+scale:backdrop trough,
+scale trough:backdrop {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+scale:backdrop highlight,
+scale highlight:backdrop {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.62);
+  background-image: none;
+  border-color: mix(@borders, @accent_bg_color, 0.55);
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+scale:backdrop slider,
+scale slider:backdrop {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.72);
+  background-image: none;
+  border-color: mix(@borders, @accent_bg_color, 0.65);
+  box-shadow: none;
+
+  min-width: 17px;
+  min-height: 17px;
+  border-radius: 999px;
+}
+
+/* Scale hover/focus */
+
+scale:hover trough,
+scale trough:hover,
+scale:focus trough,
+scale trough:focus {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+scale:hover highlight,
+scale highlight:hover,
+scale:focus highlight,
+scale highlight:focus {
+  background-color: @accent_bg_color;
+  background-image: none;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+scale:hover slider,
+scale slider:hover,
+scale:focus slider,
+scale slider:focus {
+  background-color: @accent_color;
+  background-image: none;
+  border-color: @accent_color;
+  box-shadow: none;
+}
+
+/* Checks / radios */
+
+check,
+radio {
+  background-color: @surface_container_color;
+  background-image: none;
+  color: transparent;
+  border: 1px solid @outline_color;
+  box-shadow: none;
+  min-width: 15px;
+  min-height: 15px;
+  margin: 2px;
+  padding: 0;
+}
+
+check {
+  border-radius: 4px;
+}
+
+radio {
+  border-radius: 999px;
+}
+
+check:hover,
+radio:hover {
+  background-color: @surface_container_high_color;
+  border-color: mix(@outline_color, @accent_bg_color, 0.45);
+}
+
+check:checked,
+radio:checked {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+check:checked:hover,
+radio:checked:hover {
+  background-color: @accent_color;
+  border-color: @accent_color;
+}
+
+check:disabled,
+radio:disabled {
+  background-color: @insensitive_bg_color;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+check:checked:backdrop,
+radio:checked:backdrop {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.58);
+  color: @accent_backdrop_fg_color;
+  border-color: mix(@borders, @accent_bg_color, 0.55);
+}
+
+/* Switches / toggles */
+
+switch {
+  background-color: @surface_container_color;
+  background-image: none;
+  color: @window_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+
+  min-width: 42px;
+  min-height: 22px;
+  border-radius: 999px;
+  padding: 2px;
+}
+
+switch slider {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+
+  min-width: 18px;
+  min-height: 18px;
+  border-radius: 999px;
+}
+
+/* Hovered off switch */
+
+switch:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  border-color: @borders;
+}
+
+switch:hover slider {
+  background-color: @window_fg_color;
+  background-image: none;
+}
+
+/* Checked/on switch */
+
+switch:checked {
+  background-color: alpha(@accent_bg_color, 0.80);
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+switch:checked slider {
+  background-color: @accent_fg_color;
+  background-image: none;
+  color: @accent_bg_color;
+  border-color: @accent_fg_color;
+  box-shadow: none;
+}
+
+switch:checked:hover {
+  background-color: @accent_bg_color;
+  background-image: none;
+}
+
+switch:checked:hover slider {
+  background-color: @accent_fg_color;
+  background-image: none;
+}
+
+/* Backdrop/unfocused switch */
+
+switch:backdrop {
+  background-color: alpha(@surface_container_high_color, 0.95);
+  background-image: none;
+  color: @window_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+switch:backdrop slider {
+  background-color: @window_fg_color;
+  background-image: none;
+  border-color: @window_fg_color;
+  box-shadow: none;
+}
+
+switch:checked:backdrop {
+  background-color: alpha(@accent_bg_color, 0.70);
+  background-image: none;
+  border-color: alpha(@accent_bg_color, 0.80);
+  box-shadow: none;
+}
+
+switch:checked:backdrop slider {
+  background-color: @accent_fg_color;
+  background-image: none;
+  border-color: @accent_fg_color;
+  box-shadow: none;
+}
+
+/* Disabled switch */
+
+switch:disabled {
+  background-color: @insensitive_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}
+
+switch:disabled slider {
+  background-color: alpha(@insensitive_fg_color, 0.45);
+  background-image: none;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}

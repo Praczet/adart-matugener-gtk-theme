@@ -1,0 +1,9 @@
+/*
+ * Minimal GTK4 entrypoint.
+ *
+ * This gives plain GTK4 apps the generated palette aliases where they honor
+ * theme CSS. It does not claim full libadwaita theming.
+ */
+
+@import url("matugen-generated.css");
+@import url("widgets.css");

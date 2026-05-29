@@ -1,0 +1,358 @@
+/*
+ * gtk-input.css
+ * Entries, spin buttons, comboboxes, dropdowns, and popup menu buttons.
+ */
+
+entry,
+spinbutton,
+combobox entry {
+  background-color: @card_bg_color;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  min-height: 24px;
+  padding: 4px 8px;
+}
+
+entry image.left,
+entry image.right {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+entry:focus,
+spinbutton:focus,
+combobox:focus,
+combobox entry:focus {
+  border-color: @accent_bg_color;
+}
+
+entry:backdrop,
+spinbutton:backdrop,
+combobox entry:backdrop {
+  background-color: @card_bg_color;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+entry selection,
+spinbutton selection,
+textview text selection {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}
+
+entry selection:backdrop,
+spinbutton selection:backdrop,
+textview text selection:backdrop {
+  background-color: @accent_backdrop_bg_color;
+  color: @accent_backdrop_fg_color;
+}
+
+/* Comboboxes / dropdowns */
+
+combobox {
+  background-color: transparent;
+  background-image: none;
+  color: @card_fg_color;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+combobox button,
+combobox button.combo,
+combobox button.toggle,
+combobox button.popup,
+combobox button.toggle.popup {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 24px;
+  padding: 4px 10px;
+}
+
+combobox box,
+combobox button box,
+combobox button.combo box,
+combobox button.toggle box,
+combobox button.popup box,
+combobox cellview,
+combobox button cellview,
+combobox button.combo cellview,
+combobox button.toggle cellview,
+combobox button.popup cellview {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  padding: 0 2px;
+}
+
+combobox:hover,
+combobox button:hover,
+combobox button.combo:hover,
+combobox button.toggle:hover,
+combobox button.popup:hover,
+combobox button.toggle.popup:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+combobox:hover box,
+combobox button:hover box,
+combobox:hover cellview,
+combobox button:hover cellview {
+  background-color: transparent;
+}
+
+combobox:focus,
+combobox:focus-within {
+  border: none;
+}
+
+combobox button:focus,
+combobox button.combo:focus,
+combobox button.toggle:focus,
+combobox button.popup:focus,
+combobox button.toggle.popup:focus {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+combobox:disabled {
+  background-color: transparent;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border: none;
+  box-shadow: none;
+}
+
+combobox button:disabled,
+combobox button.combo:disabled,
+combobox button.toggle:disabled,
+combobox button.popup:disabled,
+combobox button.toggle.popup:disabled {
+  background-color: @insensitive_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}
+
+combobox arrow,
+combobox button arrow,
+combobox button.combo arrow,
+combobox button.toggle arrow,
+combobox button.popup arrow,
+combobox image,
+combobox button image,
+combobox button.combo image,
+combobox button.toggle image,
+combobox button.popup image,
+combobox label,
+combobox button label,
+combobox button.combo label,
+combobox button.toggle label,
+combobox button.popup label {
+  color: inherit;
+}
+
+/* Popup/toggle menu buttons */
+
+button.toggle,
+button.popup,
+button.toggle.popup,
+button.popup.toggle,
+menubutton,
+menubutton button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+button.toggle:hover,
+button.popup:hover,
+button.toggle.popup:hover,
+button.popup.toggle:hover,
+menubutton:hover,
+menubutton button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+button.toggle:active,
+button.toggle:checked,
+button.popup:active,
+button.popup:checked,
+button.toggle.popup:active,
+button.toggle.popup:checked,
+button.popup.toggle:active,
+button.popup.toggle:checked,
+menubutton:active,
+menubutton:checked,
+menubutton button:active,
+menubutton button:checked {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+button.toggle:backdrop,
+button.popup:backdrop,
+button.toggle.popup:backdrop,
+button.popup.toggle:backdrop,
+menubutton:backdrop,
+menubutton button:backdrop {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}
+
+/*
+ * GTK Inspector sometimes exposes these by classes only.
+ * This catches GtkMenuButton.toggle.popup when it refuses to be civilized.
+ */
+
+.toggle.popup,
+.toggle.popup button,
+.popup.toggle,
+.popup.toggle button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+.toggle.popup:hover,
+.toggle.popup button:hover,
+.popup.toggle:hover,
+.popup.toggle button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+.toggle.popup:active,
+.toggle.popup:checked,
+.toggle.popup button:active,
+.toggle.popup button:checked,
+.popup.toggle:active,
+.popup.toggle:checked,
+.popup.toggle button:active,
+.popup.toggle button:checked {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+.toggle.popup:backdrop,
+.toggle.popup button:backdrop,
+.popup.toggle:backdrop,
+.popup.toggle button:backdrop {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}
+
+/* Inner content of menu buttons / combo buttons */
+
+.toggle.popup box,
+.popup.toggle box,
+menubutton box,
+menubutton button box,
+button.popup box,
+button.toggle box,
+button.popup.toggle box,
+button.toggle.popup box {
+  background-color: transparent;
+  background-image: none;
+  color: inherit;
+}
+
+.toggle.popup label,
+.popup.toggle label,
+menubutton label,
+menubutton button label,
+button.popup label,
+button.toggle label,
+button.popup.toggle label,
+button.toggle.popup label,
+.toggle.popup image,
+.popup.toggle image,
+menubutton image,
+menubutton button image,
+button.popup image,
+button.toggle image,
+button.popup.toggle image,
+button.toggle.popup image,
+.toggle.popup arrow,
+.popup.toggle arrow,
+menubutton arrow,
+menubutton button arrow,
+button.popup arrow,
+button.toggle arrow,
+button.popup.toggle arrow,
+button.toggle.popup arrow {
+  color: inherit;
+}
+
+/* Spin buttons / numeric controls */
+
+spinbutton,
+spinbutton entry,
+spinbutton button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+spinbutton entry {
+  padding: 4px 8px;
+}
+
+spinbutton button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+}
+
+spinbutton button:active,
+spinbutton button:checked {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+spinbutton:focus,
+spinbutton entry:focus {
+  border-color: @accent_bg_color;
+}

@@ -1,0 +1,27 @@
+/*
+ * gtk-final.css
+ * Last-pass cleanup.
+ *
+ * Keep this imported last.
+ */
+
+/*
+ * Remove old theme gradients on controls.
+ * Do not set background-color here; only remove background-image.
+ */
+
+button,
+entry,
+spinbutton,
+combobox,
+combobox button,
+menubutton,
+menubutton button,
+scale trough,
+scale highlight,
+scale slider,
+switch,
+switch slider,
+notebook tab {
+  background-image: none;
+}

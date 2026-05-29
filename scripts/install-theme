@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+source_dir="$repo_dir/themes/Adart-Moonmix"
+target_dir="${XDG_DATA_HOME:-$HOME/.local/share}/themes/Adart-Moonmix"
+
+mkdir -p "$(dirname -- "$target_dir")"
+rm -rf -- "$target_dir"
+cp -a -- "$source_dir" "$target_dir"
+
+printf '%s\n' "Installed Adart-Moonmix to $target_dir"
+printf '%s\n' 'Set gtk-theme-name=Adart-Moonmix in your GTK settings to use it.'

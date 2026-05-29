@@ -1,0 +1,18 @@
+/*
+ * gtk-base.css
+ * Base window/dialog/background styling.
+ */
+
+window,
+dialog,
+.background {
+  background-color: @window_bg_color;
+  color: @window_fg_color;
+}
+
+window:backdrop,
+dialog:backdrop,
+.background:backdrop {
+  background-color: @window_bg_color;
+  color: @insensitive_fg_color;
+}

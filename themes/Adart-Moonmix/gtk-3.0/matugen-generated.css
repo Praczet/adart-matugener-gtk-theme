@@ -1,0 +1,218 @@
+/*
+ * GTK Colors
+ * Generated with Matugen
+ * Base mood: Tokyonight Moon
+ * Method: Tokyonight base colors mixed with Matugen wallpaper colors
+ *
+ * Intended output:
+ *   themes/Adart-Moonmix/gtk-3.0/matugen-generated.css
+ *   themes/Adart-Moonmix/gtk-4.0/matugen-generated.css
+ *
+ * Used by:
+ *   themes/Adart-Moonmix/gtk-3.0/gtk.css
+ *   themes/Adart-Moonmix/gtk-3.0/widgets CSS files
+ *   themes/Adart-Moonmix/gtk-4.0/gtk.css
+ *
+ * Rule of the house:
+ *   This file defines the palette.
+ *   widgets and apps CSS files apply the palette to GTK widgets.
+ */
+
+/* -------------------------------------------------------------------------
+ * Tokyonight Moon-ish base
+ * ---------------------------------------------------------------------- */
+
+@define-color tn_bg #222436;
+@define-color tn_bg_dark #1e2030;
+@define-color tn_bg_highlight #2f334d;
+@define-color tn_fg #c8d3f5;
+@define-color tn_fg_muted #828bb8;
+@define-color tn_border #3b4261;
+@define-color tn_purple #c099ff;
+@define-color tn_blue #82aaff;
+@define-color tn_red #ff757f;
+@define-color tn_yellow #ffc777;
+@define-color tn_green #c3e88d;
+
+/* -------------------------------------------------------------------------
+ * Mixed GTK palette
+ * ---------------------------------------------------------------------- */
+
+/*
+ * Accent
+ */
+
+@define-color accent_color mix(@tn_purple, #a7c8ff, 0.45);
+@define-color accent_bg_color mix(@tn_purple, #a7c8ff, 0.45);
+@define-color accent_fg_color mix(@tn_bg_dark, #001b3c, 0.30);
+
+@define-color link_color mix(@tn_blue, #a7c8ff, 0.35);
+@define-color link_visited_color mix(@tn_purple, #bdc7dc, 0.38);
+
+/*
+ * Base windows
+ */
+
+@define-color window_bg_color mix(@tn_bg, #111318, 0.18);
+@define-color window_fg_color mix(@tn_fg, #e1e2e9, 0.12);
+
+/*
+ * Headerbars / toolbars
+ */
+
+@define-color headerbar_bg_color mix(@tn_bg_dark, #111318, 0.16);
+@define-color headerbar_fg_color @window_fg_color;
+
+/*
+ * Popovers / menus
+ */
+
+@define-color popover_bg_color mix(@tn_bg_highlight, #1d2024, 0.20);
+@define-color popover_fg_color @window_fg_color;
+
+/*
+ * Main content views
+ */
+
+@define-color view_bg_color mix(@tn_bg_dark, #111318, 0.14);
+@define-color view_fg_color @window_fg_color;
+
+/*
+ * Cards / raised containers / entries / buttons
+ */
+
+@define-color card_bg_color mix(@tn_bg_highlight, #1d2024, 0.22);
+@define-color card_fg_color @window_fg_color;
+
+/*
+ * Generic sidebars
+ */
+
+@define-color sidebar_bg_color mix(@tn_bg_dark, #111318, 0.12);
+@define-color sidebar_fg_color @window_fg_color;
+@define-color sidebar_border_color mix(@tn_border, #43474e, 0.20);
+@define-color sidebar_backdrop_color @window_bg_color;
+
+/*
+ * Borders / disabled state
+ */
+
+@define-color borders mix(@tn_border, #43474e, 0.20);
+@define-color unfocused_borders mix(@tn_border, #282a2f, 0.10);
+
+@define-color insensitive_bg_color mix(@tn_bg_highlight, #191c20, 0.15);
+@define-color insensitive_fg_color mix(@tn_fg_muted, #c4c6cf, 0.20);
+
+/* -------------------------------------------------------------------------
+ * GTK3 compatibility names
+ * ---------------------------------------------------------------------- */
+
+/*
+ * A lot of GTK3 themes still use these older names.
+ * Keep them, even if newer GTK/libadwaita-style names exist above.
+ */
+
+@define-color theme_bg_color @window_bg_color;
+@define-color theme_fg_color @window_fg_color;
+
+@define-color theme_base_color @view_bg_color;
+@define-color theme_text_color @view_fg_color;
+
+@define-color theme_selected_bg_color @accent_bg_color;
+@define-color theme_selected_fg_color @accent_fg_color;
+
+@define-color selected_bg_color @accent_bg_color;
+@define-color selected_fg_color @accent_fg_color;
+
+/* -------------------------------------------------------------------------
+ * Inactive / unfocused selection
+ * ---------------------------------------------------------------------- */
+
+/*
+ * GTK calls unfocused-window styling "backdrop".
+ * Without this, selected rows in unfocused Thunar may fall back to blue.
+ */
+
+@define-color accent_backdrop_bg_color alpha(@accent_bg_color, 0.62);
+@define-color accent_backdrop_fg_color @window_fg_color;
+
+@define-color theme_unfocused_selected_bg_color @accent_backdrop_bg_color;
+@define-color theme_unfocused_selected_fg_color @accent_backdrop_fg_color;
+
+@define-color unfocused_selected_bg_color @accent_backdrop_bg_color;
+@define-color unfocused_selected_fg_color @accent_backdrop_fg_color;
+
+/* -------------------------------------------------------------------------
+ * Semantic colors, still Tokyonight-flavoured
+ * ---------------------------------------------------------------------- */
+
+@define-color success_color mix(@tn_green, #dbbce1, 0.25);
+@define-color success_fg_color @tn_bg_dark;
+
+@define-color warning_color mix(@tn_yellow, #bdc7dc, 0.25);
+@define-color warning_fg_color @tn_bg_dark;
+
+@define-color error_color mix(@tn_red, #ffb4ab, 0.25);
+@define-color error_fg_color @tn_bg_dark;
+
+/* -------------------------------------------------------------------------
+ * Extra Material-ish surfaces
+ * ---------------------------------------------------------------------- */
+
+@define-color surface_color @view_bg_color;
+@define-color surface_dim_color @window_bg_color;
+@define-color surface_bright_color mix(@tn_bg_highlight, #37393e, 0.16);
+
+@define-color surface_container_lowest_color mix(@tn_bg_dark, #0c0e13, 0.10);
+@define-color surface_container_low_color mix(@tn_bg, #191c20, 0.14);
+@define-color surface_container_color mix(@tn_bg_highlight, #1d2024, 0.18);
+@define-color surface_container_high_color mix(@tn_bg_highlight, #282a2f, 0.22);
+@define-color surface_container_highest_color mix(@tn_bg_highlight, #33353a, 0.26);
+
+@define-color outline_color mix(@tn_border, #8e9199, 0.20);
+@define-color outline_variant_color @borders;
+
+/* -------------------------------------------------------------------------
+ * Thunar-specific derived colors
+ * ---------------------------------------------------------------------- */
+
+/*
+ * These live in the palette file, not in thunar.css.
+ *
+ * thunar.css should only apply colors to Thunar selectors.
+ * This is the first step toward a real theme: palette and widget rules
+ * stop sleeping in the same drawer.
+ *
+ * Sidebar background:
+ * - close to the normal background
+ * - slightly touched by the unfocused accent/backdrop selection color
+ * - darker/subtler than the selected row
+ */
+
+@define-color thunar_sidebar_bg_color mix(@window_bg_color, @accent_backdrop_bg_color, 0.10);
+@define-color thunar_sidebar_bg_backdrop_color mix(@window_bg_color, @accent_backdrop_bg_color, 0.06);
+@define-color thunar_sidebar_hover_bg_color mix(@window_bg_color, @accent_backdrop_bg_color, 0.18);
+
+@define-color thunar_sidebar_fg_color @sidebar_fg_color;
+@define-color thunar_sidebar_border_color mix(@borders, @window_bg_color, 0.45);
+
+/* -------------------------------------------------------------------------
+ * Optional GTK4/libadwaita-ish aliases
+ * ---------------------------------------------------------------------- */
+
+/*
+ * These do not magically theme every libadwaita app, because libadwaita
+ * enjoys boundaries. Still useful for user overrides and plain GTK4 apps.
+ */
+
+@define-color destructive_bg_color @error_color;
+@define-color destructive_fg_color @error_fg_color;
+
+@define-color success_bg_color @success_color;
+@define-color success_fg_color @success_fg_color;
+
+@define-color warning_bg_color @warning_color;
+@define-color warning_fg_color @warning_fg_color;
+
+@define-color error_bg_color @error_color;
+@define-color error_fg_color @error_fg_color;

@@ -1,0 +1,37 @@
+/*
+ * gtk-dialog.css
+ * Dialog content, notebook pages inside dialogs, and frames inside dialogs.
+ */
+
+dialog,
+dialog box,
+dialog grid,
+dialog frame,
+dialog stack,
+dialog viewport,
+dialog scrolledwindow,
+.dialog,
+.dialog box,
+.dialog grid,
+.dialog frame,
+.dialog stack,
+.dialog viewport,
+.dialog scrolledwindow {
+  background-color: @window_bg_color;
+  color: @window_fg_color;
+}
+
+/* Frames inside dialogs */
+
+dialog frame,
+dialog frame > border,
+dialog frame box,
+dialog frame grid,
+notebook frame,
+notebook frame > border,
+notebook frame box,
+notebook frame grid {
+  background-color: @window_bg_color;
+  color: @window_fg_color;
+  border-color: @borders;
+}

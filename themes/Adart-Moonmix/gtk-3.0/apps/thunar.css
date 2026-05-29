@@ -1,0 +1,301 @@
+/*
+ * thunar.css
+ * Clean Thunar-specific GTK CSS
+ *
+ * Loaded by themes/Adart-Moonmix/gtk-3.0/gtk.css:
+ *
+ *   @import url("matugen-generated.css");
+ *   @import url("apps/thunar.css");
+ *
+ * Actual Thunar sidebar nodes seen in GTK Inspector:
+ *   ThunarShortcutsPane.sidebar.frame.shortcuts-pane
+ *     ThunarShortcutsView.view
+ *
+ * Color variables used here are defined in matugen-generated.css.
+ * This file should apply colors, not invent them. We are trying to become
+ * civilized. Slowly. With CSS. So, perhaps not that civilized.
+ */
+
+/* -------------------------------------------------------------------------
+ * Background behind the rounded sidebar
+ * ---------------------------------------------------------------------- */
+
+/*
+ * This is the area revealed by the sidebar margin/radius.
+ * It should match the main file list background.
+ */
+
+.thunar paned,
+.thunar paned > box,
+.thunar paned > grid,
+.thunar paned > scrolledwindow,
+.thunar paned > viewport,
+.thunar paned > stack {
+  background-color: @view_bg_color;
+  color: @view_fg_color;
+}
+
+/* -------------------------------------------------------------------------
+ * Main file view
+ * ---------------------------------------------------------------------- */
+
+.thunar .view,
+.thunar treeview,
+.thunar treeview.view,
+.thunar iconview {
+  background-color: @view_bg_color;
+  color: @view_fg_color;
+}
+
+.thunar .view:backdrop,
+.thunar treeview:backdrop,
+.thunar treeview.view:backdrop,
+.thunar iconview:backdrop {
+  background-color: @view_bg_color;
+  color: @insensitive_fg_color;
+}
+
+/* Details/list column headers */
+
+.thunar treeview header button,
+.thunar treeview.view header button {
+  background-color: @surface_container_color;
+  color: @window_fg_color;
+  border-color: @borders;
+}
+
+.thunar treeview header button:hover,
+.thunar treeview.view header button:hover {
+  background-color: @surface_container_high_color;
+}
+
+/* -------------------------------------------------------------------------
+ * Main file view selection
+ * ---------------------------------------------------------------------- */
+
+/*
+ * Icon view can have rounded selected items.
+ * Details/list/compact view uses GtkTreeView/ExoTreeView and does not
+ * reliably support rounded selected rows. Lovely rectangle heritage.
+ */
+
+/* Icon view / normal view selection */
+.thunar iconview:selected,
+.thunar iconview:selected:focus,
+.thunar .view:selected,
+.thunar .view:selected:focus {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+
+  border-radius: 10px;
+}
+
+/* Icon view / normal view selection when unfocused */
+.thunar iconview:selected:backdrop,
+.thunar iconview:selected:focus:backdrop,
+.thunar .view:selected:backdrop,
+.thunar .view:selected:focus:backdrop {
+  background-color: @accent_backdrop_bg_color;
+  color: @accent_backdrop_fg_color;
+  border-color: @accent_backdrop_bg_color;
+
+  border-radius: 10px;
+}
+
+/* Details/list/compact view selection: no radius, just sane colors */
+.thunar treeview:selected,
+.thunar treeview:selected:focus,
+.thunar treeview.view:selected,
+.thunar treeview.view:selected:focus,
+.thunar .standard-view treeview:selected,
+.thunar .standard-view treeview:selected:focus,
+.thunar .standard-view treeview.view:selected,
+.thunar .standard-view treeview.view:selected:focus {
+  background-color: alpha(@accent_bg_color, 0.72);
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+/* Details/list/compact view selection when unfocused */
+.thunar treeview:selected:backdrop,
+.thunar treeview:selected:focus:backdrop,
+.thunar treeview.view:selected:backdrop,
+.thunar treeview.view:selected:focus:backdrop,
+.thunar .standard-view treeview:selected:backdrop,
+.thunar .standard-view treeview:selected:focus:backdrop,
+.thunar .standard-view treeview.view:selected:backdrop,
+.thunar .standard-view treeview.view:selected:focus:backdrop {
+  background-color: alpha(@accent_backdrop_bg_color, 0.68);
+  color: @accent_backdrop_fg_color;
+  border-color: @accent_backdrop_bg_color;
+}
+
+/* -------------------------------------------------------------------------
+ * Places / shortcuts sidebar panel
+ * ---------------------------------------------------------------------- */
+
+.thunar .shortcuts-pane,
+.thunar .shortcuts-pane.frame,
+.thunar .shortcuts-pane.sidebar {
+  background-color: @thunar_sidebar_bg_color;
+  color: @thunar_sidebar_fg_color;
+  border-color: @thunar_sidebar_border_color;
+
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-right: 6px;
+}
+
+.thunar .shortcuts-pane:backdrop,
+.thunar .shortcuts-pane.frame:backdrop,
+.thunar .shortcuts-pane.sidebar:backdrop {
+  background-color: @thunar_sidebar_bg_backdrop_color;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+/* Actual shortcuts list/view inside the pane */
+
+.thunar .shortcuts-pane .view,
+.thunar .shortcuts-pane treeview,
+.thunar .shortcuts-pane treeview.view {
+  background-color: @thunar_sidebar_bg_color;
+  color: @thunar_sidebar_fg_color;
+
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.thunar .shortcuts-pane .view:backdrop,
+.thunar .shortcuts-pane treeview:backdrop,
+.thunar .shortcuts-pane treeview.view:backdrop {
+  background-color: @thunar_sidebar_bg_backdrop_color;
+  color: @insensitive_fg_color;
+}
+
+/* -------------------------------------------------------------------------
+ * Places / shortcuts sidebar rows
+ * ---------------------------------------------------------------------- */
+
+.thunar .shortcuts-pane .view:hover,
+.thunar .shortcuts-pane treeview:hover,
+.thunar .shortcuts-pane treeview.view:hover {
+  background-color: @thunar_sidebar_hover_bg_color;
+  color: @thunar_sidebar_fg_color;
+}
+
+.thunar .shortcuts-pane .view:selected,
+.thunar .shortcuts-pane .view:selected:focus,
+.thunar .shortcuts-pane treeview:selected,
+.thunar .shortcuts-pane treeview:selected:focus,
+.thunar .shortcuts-pane treeview.view:selected,
+.thunar .shortcuts-pane treeview.view:selected:focus {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+.thunar .shortcuts-pane .view:selected:backdrop,
+.thunar .shortcuts-pane .view:selected:focus:backdrop,
+.thunar .shortcuts-pane treeview:selected:backdrop,
+.thunar .shortcuts-pane treeview:selected:focus:backdrop,
+.thunar .shortcuts-pane treeview.view:selected:backdrop,
+.thunar .shortcuts-pane treeview.view:selected:focus:backdrop {
+  background-color: @accent_backdrop_bg_color;
+  color: @accent_backdrop_fg_color;
+  border-color: @accent_backdrop_bg_color;
+}
+
+/* Text and icons inside the sidebar */
+
+.thunar .shortcuts-pane label,
+.thunar .shortcuts-pane image {
+  color: inherit;
+}
+
+/* -------------------------------------------------------------------------
+ * Location/path entry
+ * ---------------------------------------------------------------------- */
+
+.thunar entry {
+  background-color: @card_bg_color;
+  color: @card_fg_color;
+  border-color: @borders;
+}
+
+.thunar entry:focus {
+  border-color: @accent_bg_color;
+}
+
+/* -------------------------------------------------------------------------
+ * Statusbar / bottom info area
+ * ---------------------------------------------------------------------- */
+
+.thunar statusbar,
+.thunar .statusbar {
+  background-color: @surface_container_low_color;
+  color: @window_fg_color;
+  border-color: @borders;
+}
+
+/* -------------------------------------------------------------------------
+ * Thunar toolbar menu buttons
+ * View mode dropdown / search button area
+ * ---------------------------------------------------------------------- */
+
+.thunar toolbar toolitem,
+.thunar toolbar toolitem button,
+.thunar toolbar menubutton,
+.thunar toolbar menubutton button,
+.thunar toolbar button,
+.thunar .primary-toolbar toolitem,
+.thunar .primary-toolbar toolitem button,
+.thunar .primary-toolbar menubutton,
+.thunar .primary-toolbar menubutton button,
+.thunar .primary-toolbar button {
+  background-color: @card_bg_color;
+  color: @card_fg_color;
+  border-color: @borders;
+}
+
+.thunar toolbar toolitem button:hover,
+.thunar toolbar menubutton:hover,
+.thunar toolbar menubutton button:hover,
+.thunar toolbar button:hover,
+.thunar .primary-toolbar toolitem button:hover,
+.thunar .primary-toolbar menubutton:hover,
+.thunar .primary-toolbar menubutton button:hover,
+.thunar .primary-toolbar button:hover {
+  background-color: @surface_container_high_color;
+  color: @card_fg_color;
+  border-color: @borders;
+}
+
+.thunar toolbar toolitem button:active,
+.thunar toolbar toolitem button:checked,
+.thunar toolbar menubutton:active,
+.thunar toolbar menubutton:checked,
+.thunar toolbar menubutton button:active,
+.thunar toolbar menubutton button:checked,
+.thunar toolbar button:active,
+.thunar toolbar button:checked,
+.thunar .primary-toolbar toolitem button:active,
+.thunar .primary-toolbar toolitem button:checked,
+.thunar .primary-toolbar menubutton:active,
+.thunar .primary-toolbar menubutton:checked,
+.thunar .primary-toolbar menubutton button:active,
+.thunar .primary-toolbar menubutton button:checked,
+.thunar .primary-toolbar button:active,
+.thunar .primary-toolbar button:checked {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}

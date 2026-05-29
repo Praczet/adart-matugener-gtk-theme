@@ -1,0 +1,27 @@
+/*
+ * Adart-Moonmix GTK3 entrypoint.
+ *
+ * Matugen writes the palette to matugen-generated.css.
+ * Static files under widgets/ and apps/ apply that palette.
+ */
+
+@import url("matugen-generated.css");
+
+@import url("widgets/base.css");
+@import url("widgets/headerbar.css");
+@import url("widgets/view.css");
+@import url("widgets/selection.css");
+@import url("widgets/input.css");
+@import url("widgets/button.css");
+@import url("widgets/menu.css");
+@import url("widgets/scrollbar.css");
+@import url("widgets/control.css");
+@import url("widgets/notebook.css");
+@import url("widgets/dialog.css");
+@import url("widgets/panel.css");
+@import url("widgets/infobar.css");
+@import url("widgets/label.css");
+
+@import url("apps/thunar.css");
+
+@import url("widgets/final.css");

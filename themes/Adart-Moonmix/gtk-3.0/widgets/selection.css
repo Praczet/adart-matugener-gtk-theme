@@ -1,0 +1,50 @@
+/*
+ * gtk-selection.css
+ * Active and backdrop selection colors.
+ */
+
+*:selected,
+*:selected:focus,
+.view:selected,
+.view:selected:focus,
+.view text:selected,
+.view text:selected:focus,
+treeview:selected,
+treeview:selected:focus,
+treeview.view:selected,
+treeview.view:selected:focus,
+iconview:selected,
+iconview:selected:focus,
+.sidebar row:selected,
+.sidebar row:selected:focus,
+placessidebar row:selected,
+placessidebar row:selected:focus,
+stacksidebar row:selected,
+stacksidebar row:selected:focus {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+*:selected:backdrop,
+*:selected:focus:backdrop,
+.view:selected:backdrop,
+.view:selected:focus:backdrop,
+.view text:selected:backdrop,
+.view text:selected:focus:backdrop,
+treeview:selected:backdrop,
+treeview:selected:focus:backdrop,
+treeview.view:selected:backdrop,
+treeview.view:selected:focus:backdrop,
+iconview:selected:backdrop,
+iconview:selected:focus:backdrop,
+.sidebar row:selected:backdrop,
+.sidebar row:selected:focus:backdrop,
+placessidebar row:selected:backdrop,
+placessidebar row:selected:focus:backdrop,
+stacksidebar row:selected:backdrop,
+stacksidebar row:selected:focus:backdrop {
+  background-color: @accent_backdrop_bg_color;
+  color: @accent_backdrop_fg_color;
+  border-color: @accent_backdrop_bg_color;
+}

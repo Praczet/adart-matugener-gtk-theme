@@ -1,0 +1,9 @@
+[config]
+
+[templates.gtk-adart-moonmix-gtk3]
+input_path = './matugen/templates/gtk-adart-moonmix.css'
+output_path = './themes/Adart-Moonmix/gtk-3.0/matugen-generated.css'
+
+[templates.gtk-adart-moonmix-gtk4]
+input_path = './matugen/templates/gtk-adart-moonmix.css'
+output_path = './themes/Adart-Moonmix/gtk-4.0/matugen-generated.css'

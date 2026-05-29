@@ -1,0 +1,97 @@
+/*
+ * gtk-panel.css
+ * Frames, panels, settings-like content sections, rows, separators.
+ */
+
+/*
+ * Fixes odd grey/green panels inside dialogs, GTK Inspector pages,
+ * settings pages, and notebook content.
+ */
+
+frame,
+frame > border,
+frame box,
+frame grid,
+frame list,
+frame row,
+list,
+list row,
+viewport,
+scrolledwindow viewport {
+  background-color: @window_bg_color;
+  background-image: none;
+  color: @window_fg_color;
+  border-color: @borders;
+}
+
+frame:backdrop,
+frame > border:backdrop,
+frame box:backdrop,
+frame grid:backdrop,
+frame list:backdrop,
+frame row:backdrop,
+list:backdrop,
+list row:backdrop,
+viewport:backdrop,
+scrolledwindow viewport:backdrop {
+  background-color: @window_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+/* Rows inside settings-like pages */
+
+list row,
+row {
+  background-color: transparent;
+  background-image: none;
+  color: @window_fg_color;
+  border-radius: 4px;
+  min-height: 30px;
+  padding: 6px 8px;
+}
+
+list row:hover,
+row:hover {
+  background-color: @surface_container_color;
+  background-image: none;
+  color: @window_fg_color;
+}
+
+list row:selected,
+list row:selected:focus,
+row:selected,
+row:selected:focus {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.42);
+  background-image: none;
+  color: @window_fg_color;
+  border-color: mix(@borders, @accent_bg_color, 0.55);
+}
+
+list row:selected label,
+list row:selected image,
+row:selected label,
+row:selected image {
+  color: inherit;
+}
+
+list row:selected:backdrop,
+list row:selected:focus:backdrop,
+row:selected:backdrop,
+row:selected:focus:backdrop {
+  background-color: mix(@surface_container_color, @accent_backdrop_bg_color, 0.36);
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+/* Separators / borders */
+
+separator {
+  background-color: @borders;
+}
+
+separator:backdrop {
+  background-color: @unfocused_borders;
+}

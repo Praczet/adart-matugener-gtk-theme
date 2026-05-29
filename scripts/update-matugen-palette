@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+
+if [ "$#" -eq 0 ]; then
+  printf '%s\n' 'Usage: scripts/update-matugen-palette [matugen options] <image|web-image|color|json> ...' >&2
+  printf '%s\n' 'Example: scripts/update-matugen-palette image /path/to/wallpaper.jpg' >&2
+  exit 2
+fi
+
+cd "$repo_dir"
+matugen -c matugen/matugen.config.toml "$@"

@@ -1,0 +1,186 @@
+/*
+ * gtk-headerbar.css
+ * Headerbars, titlebars, toolbars, and classic toolbar buttons.
+ */
+
+headerbar,
+.titlebar,
+.titlebar:not(headerbar),
+toolbar,
+.primary-toolbar {
+  background-color: @headerbar_bg_color;
+  color: @headerbar_fg_color;
+  border-color: @borders;
+}
+
+headerbar,
+.titlebar,
+.titlebar:not(headerbar) {
+  min-height: 34px;
+  padding: 4px 6px;
+}
+
+headerbar:backdrop,
+.titlebar:backdrop,
+.titlebar:not(headerbar):backdrop,
+toolbar:backdrop,
+.primary-toolbar:backdrop {
+  background-color: @headerbar_bg_color;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+/* Headerbar / toolbar buttons */
+
+headerbar button,
+.titlebar button,
+toolbar button,
+.primary-toolbar button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 3px 8px;
+}
+
+headerbar button.image-button,
+headerbar button.titlebutton,
+headerbar button.close,
+headerbar button.maximize,
+headerbar button.minimize,
+.titlebar button.image-button,
+.titlebar button.titlebutton,
+.titlebar button.close,
+.titlebar button.maximize,
+.titlebar button.minimize {
+  min-height: 24px;
+  min-width: 24px;
+  padding: 3px;
+}
+
+headerbar button:hover,
+.titlebar button:hover,
+toolbar button:hover,
+.primary-toolbar button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+}
+
+headerbar button:active,
+headerbar button:checked,
+.titlebar button:active,
+.titlebar button:checked,
+toolbar button:active,
+toolbar button:checked,
+.primary-toolbar button:active,
+.primary-toolbar button:checked {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+/* Toolbar menu buttons / tool items */
+
+toolbar toolitem,
+toolbar toolitem button,
+toolbar menubutton,
+toolbar menubutton button,
+toolbar button,
+.primary-toolbar toolitem,
+.primary-toolbar toolitem button,
+.primary-toolbar menubutton,
+.primary-toolbar menubutton button,
+.primary-toolbar button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 3px 8px;
+}
+
+toolbar toolitem button:hover,
+toolbar menubutton:hover,
+toolbar menubutton button:hover,
+toolbar button:hover,
+.primary-toolbar toolitem button:hover,
+.primary-toolbar menubutton:hover,
+.primary-toolbar menubutton button:hover,
+.primary-toolbar button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+}
+
+toolbar toolitem button:active,
+toolbar toolitem button:checked,
+toolbar menubutton:active,
+toolbar menubutton:checked,
+toolbar menubutton button:active,
+toolbar menubutton button:checked,
+toolbar button:active,
+toolbar button:checked,
+.primary-toolbar toolitem button:active,
+.primary-toolbar toolitem button:checked,
+.primary-toolbar menubutton:active,
+.primary-toolbar menubutton:checked,
+.primary-toolbar menubutton button:active,
+.primary-toolbar button:active,
+.primary-toolbar button:checked {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+toolbar toolitem button:backdrop,
+toolbar menubutton:backdrop,
+toolbar menubutton button:backdrop,
+toolbar button:backdrop,
+.primary-toolbar toolitem button:backdrop,
+.primary-toolbar menubutton:backdrop,
+.primary-toolbar menubutton button:backdrop,
+.primary-toolbar button:backdrop {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+/* Linked toolbar button groups */
+
+toolbar .linked button,
+.primary-toolbar .linked button,
+.linked button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+}
+
+toolbar .linked button:hover,
+.primary-toolbar .linked button:hover,
+.linked button:hover {
+  background-color: @surface_container_high_color;
+}
+
+toolbar .linked button:active,
+toolbar .linked button:checked,
+.primary-toolbar .linked button:active,
+.primary-toolbar .linked button:checked,
+.linked button:active,
+.linked button:checked {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}

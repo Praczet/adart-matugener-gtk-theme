@@ -1,0 +1,121 @@
+/*
+ * gtk-button.css
+ * Generic buttons and dialog action buttons.
+ */
+
+button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 4px 10px;
+}
+
+button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+}
+
+button:active,
+button:checked,
+button.suggested-action {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+}
+
+button.image-button,
+button.titlebutton,
+button.close,
+button.maximize,
+button.minimize {
+  min-height: 24px;
+  min-width: 24px;
+  padding: 3px;
+}
+
+button:disabled,
+button:disabled label {
+  background-color: @insensitive_bg_color;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+button:backdrop {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+}
+
+/* Dialog action buttons */
+
+dialog button,
+dialog .dialog-action-area button,
+dialog actionbar button,
+dialog buttonbox button,
+.dialog button,
+.dialog .dialog-action-area button,
+.dialog actionbar button,
+.dialog buttonbox button {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @card_fg_color;
+  border: 1px solid @borders;
+  border-radius: 6px;
+  box-shadow: none;
+  min-height: 24px;
+  min-width: 24px;
+  padding: 4px 10px;
+}
+
+dialog button:hover,
+dialog .dialog-action-area button:hover,
+dialog actionbar button:hover,
+dialog buttonbox button:hover,
+.dialog button:hover,
+.dialog .dialog-action-area button:hover,
+.dialog actionbar button:hover,
+.dialog buttonbox button:hover {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @card_fg_color;
+  border-color: @borders;
+  box-shadow: none;
+}
+
+dialog button:active,
+dialog button:checked,
+dialog button:focus,
+dialog .dialog-action-area button:active,
+dialog .dialog-action-area button:checked,
+dialog .dialog-action-area button:focus,
+dialog actionbar button:active,
+dialog actionbar button:checked,
+dialog actionbar button:focus,
+dialog buttonbox button:active,
+dialog buttonbox button:checked,
+dialog buttonbox button:focus {
+  background-color: @accent_bg_color;
+  background-image: none;
+  color: @accent_fg_color;
+  border-color: @accent_bg_color;
+  box-shadow: none;
+}
+
+dialog button:backdrop,
+dialog .dialog-action-area button:backdrop,
+dialog actionbar button:backdrop,
+dialog buttonbox button:backdrop {
+  background-color: @card_bg_color;
+  background-image: none;
+  color: @insensitive_fg_color;
+  border-color: @unfocused_borders;
+  box-shadow: none;
+}

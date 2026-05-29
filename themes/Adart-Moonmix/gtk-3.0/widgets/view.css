@@ -1,0 +1,71 @@
+/*
+ * gtk-view.css
+ * Main content views, tree views, icon views, and generic sidebars.
+ */
+
+.view,
+.view text,
+textview,
+textview text,
+treeview,
+treeview.view,
+iconview {
+  background-color: @view_bg_color;
+  color: @view_fg_color;
+}
+
+.view:backdrop,
+.view text:backdrop,
+textview:backdrop,
+textview text:backdrop,
+treeview:backdrop,
+treeview.view:backdrop,
+iconview:backdrop {
+  background-color: @view_bg_color;
+  color: @insensitive_fg_color;
+}
+
+/* Tree/list headers */
+
+treeview header button,
+treeview.view header button {
+  background-color: @surface_container_color;
+  color: @window_fg_color;
+  border-color: @borders;
+}
+
+treeview header button:hover,
+treeview.view header button:hover {
+  background-color: @surface_container_high_color;
+}
+
+/* Generic sidebars */
+
+sidebar,
+.sidebar,
+placessidebar,
+placessidebar list,
+placessidebar row,
+stacksidebar,
+stacksidebar row {
+  background-color: @sidebar_bg_color;
+  color: @sidebar_fg_color;
+}
+
+sidebar:backdrop,
+.sidebar:backdrop,
+placessidebar:backdrop,
+placessidebar list:backdrop,
+placessidebar row:backdrop,
+stacksidebar:backdrop,
+stacksidebar row:backdrop {
+  background-color: @sidebar_backdrop_color;
+  color: @insensitive_fg_color;
+}
+
+placessidebar row:hover,
+stacksidebar row:hover,
+.sidebar row:hover {
+  background-color: @surface_container_color;
+  color: @sidebar_fg_color;
+}

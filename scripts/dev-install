@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+set -eu
+
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+
+"$repo_dir/scripts/install-theme"
+
+if command -v thunar >/dev/null 2>&1; then
+  thunar -q >/dev/null 2>&1 || true
+fi
+
+printf '%s\n' 'Restarted Thunar. Launch it again to test the installed theme.'
