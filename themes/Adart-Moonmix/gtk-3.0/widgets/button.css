@@ -15,6 +15,17 @@ button {
   padding: 4px 10px;
 }
 
+button box,
+button label,
+button image {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
 button:hover {
   background-color: @surface_container_high_color;
   background-image: none;
@@ -28,6 +39,30 @@ button.suggested-action {
   background-image: none;
   color: @accent_fg_color;
   border-color: @accent_bg_color;
+}
+
+button.destructive-action,
+.destructive-action {
+  background-color: mix(@card_bg_color, @destructive_bg_color, 0.34);
+  background-image: none;
+  color: @window_fg_color;
+  border-color: mix(@borders, @destructive_bg_color, 0.62);
+}
+
+button.destructive-action:hover,
+.destructive-action:hover {
+  background-color: mix(@surface_container_high_color, @destructive_bg_color, 0.46);
+  color: @window_fg_color;
+  border-color: alpha(@destructive_bg_color, 0.78);
+}
+
+button.destructive-action:active,
+button.destructive-action:checked,
+.destructive-action:active,
+.destructive-action:checked {
+  background-color: @destructive_bg_color;
+  color: @destructive_fg_color;
+  border-color: @destructive_bg_color;
 }
 
 button.image-button,
@@ -118,4 +153,38 @@ dialog buttonbox button:backdrop {
   color: @insensitive_fg_color;
   border-color: @unfocused_borders;
   box-shadow: none;
+}
+
+dialog button.destructive-action,
+dialog .dialog-action-area button.destructive-action,
+dialog actionbar button.destructive-action,
+dialog buttonbox button.destructive-action,
+.dialog button.destructive-action {
+  background-color: mix(@card_bg_color, @destructive_bg_color, 0.34);
+  color: @window_fg_color;
+  border-color: mix(@borders, @destructive_bg_color, 0.62);
+}
+
+dialog button.destructive-action:hover,
+dialog .dialog-action-area button.destructive-action:hover,
+dialog actionbar button.destructive-action:hover,
+dialog buttonbox button.destructive-action:hover,
+.dialog button.destructive-action:hover {
+  background-color: mix(@surface_container_high_color, @destructive_bg_color, 0.46);
+  border-color: alpha(@destructive_bg_color, 0.78);
+}
+
+dialog button.destructive-action:active,
+dialog button.destructive-action:checked,
+dialog .dialog-action-area button.destructive-action:active,
+dialog .dialog-action-area button.destructive-action:checked,
+dialog actionbar button.destructive-action:active,
+dialog actionbar button.destructive-action:checked,
+dialog buttonbox button.destructive-action:active,
+dialog buttonbox button.destructive-action:checked,
+.dialog button.destructive-action:active,
+.dialog button.destructive-action:checked {
+  background-color: @destructive_bg_color;
+  color: @destructive_fg_color;
+  border-color: @destructive_bg_color;
 }

@@ -1,0 +1,63 @@
+/*
+ * GIMP-specific GTK3 cleanup.
+ *
+ * GIMP 3 uses custom GTK widgets in its welcome dialog. GTK Inspector shows
+ * the dialog style class as .gimp-welcome-dialog; scope overrides there.
+ */
+
+.gimp-welcome-dialog,
+dialog.gimp-welcome-dialog,
+.gimp-welcome-dialog.background,
+.gimp-welcome-dialog .dialog-vbox {
+  background-color: @window_bg_color;
+  background-image: none;
+  color: @window_fg_color;
+}
+
+.gimp-welcome-dialog box,
+.gimp-welcome-dialog grid,
+.gimp-welcome-dialog stack,
+.gimp-welcome-dialog viewport,
+.gimp-welcome-dialog scrolledwindow,
+.gimp-welcome-dialog .frame,
+.gimp-welcome-dialog frame,
+.gimp-welcome-dialog frame > border {
+  background-color: @window_bg_color;
+  background-image: none;
+  color: @window_fg_color;
+  border-color: @borders;
+}
+
+.gimp-welcome-dialog .view,
+.gimp-welcome-dialog list,
+.gimp-welcome-dialog row,
+.gimp-welcome-dialog row box,
+.gimp-welcome-dialog row eventbox,
+.gimp-welcome-dialog row label {
+  background-color: @view_bg_color;
+  background-image: none;
+  color: @view_fg_color;
+}
+
+.gimp-welcome-dialog row:hover,
+.gimp-welcome-dialog row:hover box,
+.gimp-welcome-dialog row:hover eventbox {
+  background-color: @surface_container_color;
+  color: @window_fg_color;
+}
+
+.gimp-welcome-dialog notebook,
+.gimp-welcome-dialog notebook header,
+.gimp-welcome-dialog notebook tab,
+.gimp-welcome-dialog button {
+  background-image: none;
+}
+
+.gimp-welcome-dialog button box,
+.gimp-welcome-dialog button label,
+.gimp-welcome-dialog notebook tab box,
+.gimp-welcome-dialog notebook tab label {
+  background-color: transparent;
+  background-image: none;
+  color: inherit;
+}

@@ -29,6 +29,11 @@ themes/
         ├── gtk-dark.css
         ├── matugen-generated.css
         └── widgets.css
+
+gimp/
+└── Adart-Moonmix/
+    ├── gimp.css
+    └── gimp-dark.css
 ```
 
 `input/` is ignored by Git and kept only as a local snapshot of the previous
@@ -73,6 +78,7 @@ It installs to:
 
 ```text
 ~/.local/share/themes/Adart-Moonmix
+~/.config/GIMP/3.2/themes/Adart-Moonmix
 ```
 
 Set GTK to use:
@@ -108,6 +114,16 @@ For GTK4 testing:
 pavucontrol
 ```
 
+For GIMP, select the matching app theme inside GIMP:
+
+```text
+Edit > Preferences > Interface > Theme > Adart-Moonmix
+```
+
+GIMP ships its own theme CSS and the default GIMP theme overrides normal GTK
+theme colors. The bundled GIMP theme maps GIMP's own color variables back to
+the Adart-Moonmix Matugen palette.
+
 ## Scope
 
 GTK3:
@@ -115,6 +131,7 @@ GTK3:
 - normal theme entrypoints under `gtk-3.0/`
 - widget CSS split under `gtk-3.0/widgets/`
 - Thunar fixes enabled by default under `gtk-3.0/apps/thunar.css`
+- GIMP app theme under `gimp/Adart-Moonmix/`
 
 GTK4:
 

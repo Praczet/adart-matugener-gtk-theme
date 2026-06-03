@@ -35,6 +35,62 @@
   color: @view_fg_color;
 }
 
+/*
+ * Splitter between the places sidebar and file view.
+ * Keep it nearly invisible until hovered; remove the dotted handle texture.
+ */
+
+.thunar paned > separator,
+.thunar paned separator,
+.thunar paned > separator.wide,
+.thunar paned > separator:backdrop,
+.thunar .pane-separator,
+.thunar .pane-separator:backdrop {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: 0 0;
+  border: none;
+  border-image: none;
+  box-shadow: none;
+  outline: none;
+  -gtk-icon-source: none;
+  -gtk-icon-shadow: none;
+  min-width: 4px;
+  min-height: 2px;
+}
+
+.thunar paned > separator:hover,
+.thunar paned separator:hover,
+.thunar paned > separator.wide:hover,
+.thunar .pane-separator:hover {
+  background: alpha(@accent_bg_color, 0.42);
+  background-color: alpha(@accent_bg_color, 0.42);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: 0 0;
+  border: none;
+  border-image: none;
+  box-shadow: none;
+  outline: none;
+  -gtk-icon-source: none;
+  -gtk-icon-shadow: none;
+}
+
+.thunar paned > separator *,
+.thunar paned separator *,
+.thunar .pane-separator * {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: transparent;
+  -gtk-icon-source: none;
+  -gtk-icon-shadow: none;
+}
+
 /* -------------------------------------------------------------------------
  * Main file view
  * ---------------------------------------------------------------------- */
@@ -59,14 +115,51 @@
 
 .thunar treeview header button,
 .thunar treeview.view header button {
-  background-color: @surface_container_color;
+  background-color: @surface_container_high_color;
+  background-image: none;
   color: @window_fg_color;
-  border-color: @borders;
+  border: 1px solid @borders;
+  border-radius: 4px;
+  box-shadow: inset 0 1px alpha(@window_fg_color, 0.05);
+  margin: 0 1px 1px 0;
+  min-height: 24px;
+  padding: 3px 8px;
+}
+
+.thunar treeview header button box,
+.thunar treeview header button label,
+.thunar treeview header button image,
+.thunar treeview.view header button box,
+.thunar treeview.view header button label,
+.thunar treeview.view header button image {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  color: inherit;
+  box-shadow: none;
+  border: none;
 }
 
 .thunar treeview header button:hover,
 .thunar treeview.view header button:hover {
-  background-color: @surface_container_high_color;
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.16);
+  border-color: alpha(@accent_bg_color, 0.42);
+  color: @window_fg_color;
+}
+
+.thunar treeview header button:active,
+.thunar treeview header button:checked,
+.thunar treeview.view header button:active,
+.thunar treeview.view header button:checked {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.24);
+  border-color: alpha(@accent_bg_color, 0.52);
+}
+
+.thunar treeview header button:backdrop,
+.thunar treeview.view header button:backdrop {
+  background-color: @surface_container_color;
+  border-color: @unfocused_borders;
+  color: @insensitive_fg_color;
 }
 
 /* -------------------------------------------------------------------------
@@ -142,8 +235,8 @@
   color: @thunar_sidebar_fg_color;
   border-color: @thunar_sidebar_border_color;
 
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 
@@ -168,8 +261,8 @@
   background-color: @thunar_sidebar_bg_color;
   color: @thunar_sidebar_fg_color;
 
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -233,6 +326,66 @@
 
 .thunar entry:focus {
   border-color: @accent_bg_color;
+}
+
+/* -------------------------------------------------------------------------
+ * File tabs
+ * ---------------------------------------------------------------------- */
+
+.thunar notebook header,
+.thunar notebook header.top,
+.thunar notebook tabs {
+  background-color: @headerbar_bg_color;
+  background-image: none;
+  border-color: @borders;
+}
+
+.thunar notebook tab {
+  background-color: @surface_container_high_color;
+  background-image: none;
+  color: @window_fg_color;
+  border: 1px solid @borders;
+  border-radius: 4px;
+  box-shadow: inset 0 1px alpha(@window_fg_color, 0.05);
+  margin: 0 1px 1px 0;
+  min-height: 24px;
+  padding: 3px 8px;
+}
+
+.thunar notebook tab box,
+.thunar notebook tab label,
+.thunar notebook tab image,
+.thunar notebook tab button,
+.thunar notebook tab button box,
+.thunar notebook tab button label,
+.thunar notebook tab button image {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+.thunar notebook tab:hover {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.16);
+  border-color: alpha(@accent_bg_color, 0.42);
+  color: @window_fg_color;
+}
+
+.thunar notebook tab:checked,
+.thunar notebook tab:checked:hover,
+.thunar notebook tab:checked:focus {
+  background-color: @surface_container_high_color;
+  border-color: alpha(@accent_bg_color, 0.52);
+  box-shadow: inset 0 -3px @accent_bg_color;
+  color: @window_fg_color;
+}
+
+.thunar notebook tab:backdrop {
+  background-color: @surface_container_color;
+  border-color: @unfocused_borders;
+  color: @insensitive_fg_color;
 }
 
 /* -------------------------------------------------------------------------

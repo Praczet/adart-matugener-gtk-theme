@@ -53,6 +53,21 @@ notebook tab {
   padding: 6px 12px;
 }
 
+notebook tab box,
+notebook tab label,
+notebook tab image,
+notebook tab button,
+notebook tab button box,
+notebook tab button label,
+notebook tab button image {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
 notebook tab:hover {
   background-color: @surface_container_high_color;
   background-image: none;

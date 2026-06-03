@@ -30,8 +30,23 @@ iconview:backdrop {
 treeview header button,
 treeview.view header button {
   background-color: @surface_container_color;
+  background-image: none;
   color: @window_fg_color;
   border-color: @borders;
+}
+
+treeview header button box,
+treeview header button label,
+treeview header button image,
+treeview.view header button box,
+treeview.view header button label,
+treeview.view header button image {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
 }
 
 treeview header button:hover,
@@ -44,11 +59,14 @@ treeview.view header button:hover {
 sidebar,
 .sidebar,
 placessidebar,
+.places_sidebar,
 placessidebar list,
 placessidebar row,
 stacksidebar,
-stacksidebar row {
+stacksidebar row,
+.sidebar-row {
   background-color: @sidebar_bg_color;
+  background-image: none;
   color: @sidebar_fg_color;
 }
 
@@ -58,14 +76,120 @@ placessidebar:backdrop,
 placessidebar list:backdrop,
 placessidebar row:backdrop,
 stacksidebar:backdrop,
-stacksidebar row:backdrop {
+stacksidebar row:backdrop,
+.sidebar-row:backdrop {
   background-color: @sidebar_backdrop_color;
+  background-image: none;
   color: @insensitive_fg_color;
+}
+
+placessidebar row,
+stacksidebar row,
+.sidebar row,
+.sidebar-row {
+  background-image: none;
+  border-radius: 6px;
+  color: @sidebar_fg_color;
+  min-height: 30px;
+  padding: 6px 8px;
+}
+
+placessidebar row box,
+placessidebar row label,
+placessidebar row image,
+stacksidebar row box,
+stacksidebar row label,
+stacksidebar row image,
+.sidebar row box,
+.sidebar row label,
+.sidebar row image,
+.sidebar-row box,
+.sidebar-row label,
+.sidebar-row image,
+.sidebar-row .sidebar-revealer,
+.sidebar-row .event_box {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
 }
 
 placessidebar row:hover,
 stacksidebar row:hover,
-.sidebar row:hover {
+.sidebar row:hover,
+.sidebar-row:hover {
   background-color: @surface_container_color;
+  background-image: none;
   color: @sidebar_fg_color;
+}
+
+placessidebar row:selected,
+placessidebar row:selected:hover,
+placessidebar row:selected:focus,
+stacksidebar row:selected,
+stacksidebar row:selected:hover,
+stacksidebar row:selected:focus,
+.sidebar row:selected,
+.sidebar row:selected:hover,
+.sidebar row:selected:focus,
+.sidebar-row:selected,
+.sidebar-row:selected:hover,
+.sidebar-row:selected:focus,
+.sidebar-row:checked,
+.sidebar-row:checked:hover,
+.sidebar-row:focus {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.42);
+  background-image: none;
+  color: @window_fg_color;
+  border-color: mix(@borders, @accent_bg_color, 0.55);
+}
+
+placessidebar row:selected box,
+placessidebar row:selected label,
+placessidebar row:selected image,
+stacksidebar row:selected box,
+stacksidebar row:selected label,
+stacksidebar row:selected image,
+.sidebar row:selected box,
+.sidebar row:selected label,
+.sidebar row:selected image,
+.sidebar-row:selected box,
+.sidebar-row:selected label,
+.sidebar-row:selected image,
+.sidebar-row:selected .sidebar-revealer,
+.sidebar-row:selected .event_box,
+.sidebar-row:checked box,
+.sidebar-row:checked label,
+.sidebar-row:checked image,
+.sidebar-row:checked .sidebar-revealer,
+.sidebar-row:checked .event_box,
+.sidebar-row:focus box,
+.sidebar-row:focus label,
+.sidebar-row:focus image,
+.sidebar-row:focus .sidebar-revealer,
+.sidebar-row:focus .event_box {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+placessidebar row image,
+stacksidebar row image,
+.sidebar row image,
+.sidebar-row image,
+.sidebar-row .sidebar-icon {
+  margin-right: 6px;
+}
+
+placessidebar row label,
+stacksidebar row label,
+.sidebar row label,
+.sidebar-row label,
+.sidebar-row .sidebar-label {
+  margin-left: 2px;
 }

@@ -78,6 +78,119 @@ notebook > stack {
   color: @window_fg_color;
 }
 
+sidebar,
+.sidebar,
+placessidebar,
+.places_sidebar,
+placessidebar list,
+placessidebar row,
+navigation-sidebar,
+navigation-sidebar list,
+navigation-sidebar row {
+  background-color: @sidebar_bg_color;
+  background-image: none;
+  color: @sidebar_fg_color;
+}
+
+placessidebar row,
+navigation-sidebar row,
+.sidebar row,
+.sidebar-row {
+  background-image: none;
+  border-radius: 6px;
+  color: @sidebar_fg_color;
+  min-height: 30px;
+  padding: 6px 8px;
+}
+
+placessidebar row box,
+placessidebar row label,
+placessidebar row image,
+navigation-sidebar row box,
+navigation-sidebar row label,
+navigation-sidebar row image,
+.sidebar row box,
+.sidebar row label,
+.sidebar row image,
+.sidebar-row box,
+.sidebar-row label,
+.sidebar-row image,
+.sidebar-row .sidebar-revealer,
+.sidebar-row .event_box {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+placessidebar row:hover,
+navigation-sidebar row:hover,
+.sidebar row:hover,
+.sidebar-row:hover {
+  background-color: @surface_container_color;
+  color: @sidebar_fg_color;
+}
+
+placessidebar row:selected,
+placessidebar row:selected:hover,
+placessidebar row:focus,
+navigation-sidebar row:selected,
+navigation-sidebar row:selected:hover,
+navigation-sidebar row:focus,
+.sidebar row:selected,
+.sidebar row:selected:hover,
+.sidebar row:focus,
+.sidebar-row:selected,
+.sidebar-row:selected:hover,
+.sidebar-row:checked,
+.sidebar-row:checked:hover,
+.sidebar-row:focus {
+  background-color: mix(@surface_container_high_color, @accent_bg_color, 0.42);
+  background-image: none;
+  color: @window_fg_color;
+}
+
+.sidebar-row:selected box,
+.sidebar-row:selected label,
+.sidebar-row:selected image,
+.sidebar-row:selected .sidebar-revealer,
+.sidebar-row:selected .event_box,
+.sidebar-row:checked box,
+.sidebar-row:checked label,
+.sidebar-row:checked image,
+.sidebar-row:checked .sidebar-revealer,
+.sidebar-row:checked .event_box,
+.sidebar-row:focus box,
+.sidebar-row:focus label,
+.sidebar-row:focus image,
+.sidebar-row:focus .sidebar-revealer,
+.sidebar-row:focus .event_box {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+placessidebar row image,
+navigation-sidebar row image,
+.sidebar row image,
+.sidebar-row image,
+.sidebar-row .sidebar-icon {
+  margin-right: 6px;
+}
+
+placessidebar row label,
+navigation-sidebar row label,
+.sidebar row label,
+.sidebar-row label,
+.sidebar-row .sidebar-label {
+  margin-left: 2px;
+}
+
 button {
   background-color: @card_bg_color;
   background-image: none;
@@ -88,6 +201,26 @@ button {
   min-height: 24px;
   min-width: 24px;
   padding: 4px 10px;
+}
+
+button box,
+button label,
+button image,
+button arrow,
+menubutton box,
+menubutton button box,
+menubutton label,
+menubutton button label,
+menubutton image,
+menubutton button image,
+menubutton arrow,
+menubutton button arrow {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
 }
 
 button:hover {
@@ -101,6 +234,30 @@ button:checked {
   border-color: @accent_bg_color;
 }
 
+button.destructive-action,
+.destructive-action {
+  background-color: mix(@card_bg_color, @destructive_bg_color, 0.34);
+  background-image: none;
+  color: @window_fg_color;
+  border-color: mix(@borders, @destructive_bg_color, 0.62);
+}
+
+button.destructive-action:hover,
+.destructive-action:hover {
+  background-color: mix(@surface_container_high_color, @destructive_bg_color, 0.46);
+  color: @window_fg_color;
+  border-color: alpha(@destructive_bg_color, 0.78);
+}
+
+button.destructive-action:active,
+button.destructive-action:checked,
+.destructive-action:active,
+.destructive-action:checked {
+  background-color: @destructive_bg_color;
+  color: @destructive_fg_color;
+  border-color: @destructive_bg_color;
+}
+
 button.image-button,
 button.circular,
 button.titlebutton {
@@ -111,7 +268,9 @@ button.titlebutton {
 
 entry,
 spinbutton,
-combobox button {
+combobox button,
+dropdown button,
+menubutton button {
   background-color: @card_bg_color;
   background-image: none;
   color: @card_fg_color;
@@ -124,8 +283,34 @@ combobox button {
 
 entry:focus,
 spinbutton:focus,
-combobox button:focus {
+combobox button:focus,
+dropdown button:focus,
+menubutton button:focus {
   border-color: @accent_bg_color;
+}
+
+combobox box,
+combobox button box,
+combobox label,
+combobox button label,
+combobox image,
+combobox button image,
+combobox arrow,
+combobox button arrow,
+dropdown box,
+dropdown button box,
+dropdown label,
+dropdown button label,
+dropdown image,
+dropdown button image,
+dropdown arrow,
+dropdown button arrow {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
 }
 
 popover,
@@ -141,10 +326,32 @@ menu,
 modelbutton,
 menuitem {
   background-color: transparent;
+  background-image: none;
   color: @popover_fg_color;
+  border: none;
   border-radius: 4px;
+  box-shadow: none;
   min-height: 26px;
   padding: 5px 12px;
+}
+
+modelbutton box,
+modelbutton label,
+modelbutton image,
+modelbutton arrow,
+menuitem box,
+menuitem label,
+menuitem image,
+menuitem arrow,
+popover label,
+popover image,
+popover box {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
 }
 
 modelbutton:hover,
@@ -161,9 +368,22 @@ row {
 }
 
 row {
+  background-image: none;
   border-radius: 4px;
   min-height: 30px;
   padding: 6px 8px;
+}
+
+row box,
+row label,
+row image,
+row revealer {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
 }
 
 row:hover {
@@ -174,6 +394,36 @@ row:selected,
 row:selected:focus {
   background-color: mix(@surface_container_high_color, @accent_bg_color, 0.42);
   color: @window_fg_color;
+}
+
+dropdown button row,
+dropdown button row:selected,
+dropdown button row:hover,
+dropdown button box,
+dropdown button stack,
+dropdown button stack row,
+dropdown button listitem,
+dropdown button label,
+dropdown button image,
+dropdown button arrow,
+combobox button row,
+combobox button row:selected,
+combobox button row:hover,
+combobox button box,
+combobox button stack,
+combobox button stack row,
+combobox button listitem,
+combobox button label,
+combobox button image,
+combobox button arrow {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  min-height: 0;
+  padding: 0;
 }
 
 scale trough {
@@ -280,6 +530,44 @@ scrollbar slider {
   border-radius: 999px;
   min-height: 6px;
   min-width: 6px;
+}
+
+paned > separator,
+paned separator,
+paned > separator.wide {
+  background: alpha(@window_fg_color, 0.01);
+  background-color: alpha(@window_fg_color, 0.01);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: 0 0;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  min-width: 4px;
+  min-height: 2px;
+}
+
+paned > separator:hover,
+paned separator:hover,
+paned > separator.wide:hover {
+  background: alpha(@accent_bg_color, 0.42);
+  background-color: alpha(@accent_bg_color, 0.42);
+  background-image: none;
+  background-repeat: no-repeat;
+  background-size: 0 0;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+paned > separator *,
+paned separator * {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: transparent;
 }
 
 *:selected {
