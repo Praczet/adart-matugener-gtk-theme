@@ -1,11 +1,11 @@
 /*
  * Adart-Moonmix GTK3 entrypoint.
  *
- * Matugen writes the palette to matugen-generated.css.
+ * Unclaimed Bloom writes the palette to gtk-adart-unclaimed-bloom.css.
  * Static files under widgets/ and apps/ apply that palette.
  */
 
-@import url("matugen-generated.css");
+@import url("gtk-adart-unclaimed-bloom.css");
 
 @import url("widgets/base.css");
 @import url("widgets/headerbar.css");
@@ -24,5 +24,6 @@
 
 @import url("apps/thunar.css");
 @import url("apps/gimp.css");
+@import url("apps/yad.css");
 
 @import url("widgets/final.css");
