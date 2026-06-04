@@ -2,22 +2,22 @@
 set -eu
 
 repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-source_dir="$repo_dir/themes/Adart-Moonmix"
-target_dir="${XDG_DATA_HOME:-$HOME/.local/share}/themes/Adart-Moonmix"
-gimp_source_dir="$repo_dir/gimp/Adart-Moonmix"
-gimp_target_dir="${XDG_CONFIG_HOME:-$HOME/.config}/GIMP/3.2/themes/Adart-Moonmix"
+source_dir="$repo_dir/themes/ADArt-Unclaimed-Bloom"
+target_dir="${XDG_DATA_HOME:-$HOME/.local/share}/themes/ADArt-Unclaimed-Bloom"
+gimp_source_dir="$repo_dir/gimp/ADArt-Unclaimed-Bloom"
+gimp_target_dir="${XDG_CONFIG_HOME:-$HOME/.config}/GIMP/3.2/themes/ADArt-Unclaimed-Bloom"
 
 mkdir -p "$(dirname -- "$target_dir")"
 rm -rf -- "$target_dir"
 cp -a -- "$source_dir" "$target_dir"
 
-printf '%s\n' "Installed Adart-Moonmix to $target_dir"
-printf '%s\n' 'Set gtk-theme-name=Adart-Moonmix in your GTK settings to use it.'
+printf '%s\n' "Installed ADArt-Unclaimed-Bloom to $target_dir"
+printf '%s\n' 'Set gtk-theme-name=ADArt-Unclaimed-Bloom in your GTK settings to use it.'
 
 if [ -d "$gimp_source_dir" ]; then
   mkdir -p "$(dirname -- "$gimp_target_dir")"
   rm -rf -- "$gimp_target_dir"
   cp -a -- "$gimp_source_dir" "$gimp_target_dir"
   printf '%s\n' "Installed GIMP theme to $gimp_target_dir"
-  printf '%s\n' 'In GIMP, set Interface > Theme to Adart-Moonmix.'
+  printf '%s\n' 'In GIMP, set Interface > Theme to ADArt-Unclaimed-Bloom.'
 fi

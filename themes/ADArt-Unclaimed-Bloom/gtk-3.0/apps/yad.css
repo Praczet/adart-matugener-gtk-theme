@@ -1,0 +1,40 @@
+/*
+ * yad.css
+ * YAD dialog-specific styling.
+ *
+ * Loaded by themes/ADArt-Unclaimed-Bloom/gtk-3.0/gtk.css.
+ *
+ * Nodes confirmed via GTK Inspector:
+ *   GtkWindow (name: yad-dialog-window)
+ *     GtkButtonBox
+ *       GtkButton :first-child  → Cancel (no name/class; positional selector)
+ *         GtkBox.horizontal
+ *           GtkImage             ← icon to suppress
+ *           GtkLabel             → "Cancel"
+ *       GtkButton :last-child   → OK
+ *     GtkLabel (name: yad-dialog-label)
+ */
+
+/* -------------------------------------------------------------------------
+ * Dialog prompt label
+ * ---------------------------------------------------------------------- */
+
+window#yad-dialog-window label#yad-dialog-label {
+  font-size: 1.5rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  color: @window_fg_color;
+}
+
+/* -------------------------------------------------------------------------
+ * Cancel button — suppress the stock icon
+ * Cancel has no name/class; it is reliably the first child of GtkButtonBox.
+ * ---------------------------------------------------------------------- */
+
+window#yad-dialog-window buttonbox > button:first-child image {
+  -gtk-icon-source: none;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}

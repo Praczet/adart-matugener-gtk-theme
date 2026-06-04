@@ -1,12 +1,12 @@
 /*
- * Adart-Moonmix for GIMP 3.
+ * ADArt-Unclaimed-Bloom for GIMP 3.
  *
  * GIMP has its own application theme layer. Normal GTK theme CSS cannot
  * reliably override it, so this file maps GIMP's theme variables to the
- * Adart-Moonmix GTK palette and then reuses GIMP's own dark common rules.
+ * ADArt-Unclaimed-Bloom GTK palette and then reuses GIMP's own dark common rules.
  */
 
-@import url("file:///home/adam/.local/share/themes/Adart-Moonmix/gtk-3.0/matugen-generated.css");
+@import url("file:///home/adam/.local/share/themes/ADArt-Unclaimed-Bloom/gtk-3.0/gtk-adart-unclaimed-bloom.css");
 
 @define-color fg-color @window_fg_color;
 @define-color bg-color @window_bg_color;

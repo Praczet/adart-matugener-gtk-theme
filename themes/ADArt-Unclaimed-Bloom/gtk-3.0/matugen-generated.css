@@ -5,13 +5,13 @@
  * Method: Tokyonight base colors mixed with Matugen wallpaper colors
  *
  * Intended output:
- *   themes/Adart-Moonmix/gtk-3.0/matugen-generated.css
- *   themes/Adart-Moonmix/gtk-4.0/matugen-generated.css
+ *   themes/ADArt-Unclaimed-Bloom/gtk-3.0/matugen-generated.css
+ *   themes/ADArt-Unclaimed-Bloom/gtk-4.0/matugen-generated.css
  *
  * Used by:
- *   themes/Adart-Moonmix/gtk-3.0/gtk.css
- *   themes/Adart-Moonmix/gtk-3.0/widgets CSS files
- *   themes/Adart-Moonmix/gtk-4.0/gtk.css
+ *   themes/ADArt-Unclaimed-Bloom/gtk-3.0/gtk.css
+ *   themes/ADArt-Unclaimed-Bloom/gtk-3.0/widgets CSS files
+ *   themes/ADArt-Unclaimed-Bloom/gtk-4.0/gtk.css
  *
  * Rule of the house:
  *   This file defines the palette.
@@ -42,66 +42,66 @@
  * Accent
  */
 
-@define-color accent_color mix(@tn_purple, #8ecff2, 0.45);
-@define-color accent_bg_color mix(@tn_purple, #8ecff2, 0.45);
-@define-color accent_fg_color mix(@tn_bg_dark, #001e2c, 0.30);
+@define-color accent_color mix(@tn_purple, #b5c4ff, 0.45);
+@define-color accent_bg_color mix(@tn_purple, #b5c4ff, 0.45);
+@define-color accent_fg_color mix(@tn_bg_dark, #02174b, 0.30);
 
-@define-color link_color mix(@tn_blue, #8ecff2, 0.35);
-@define-color link_visited_color mix(@tn_purple, #b5c9d7, 0.38);
+@define-color link_color mix(@tn_blue, #b5c4ff, 0.35);
+@define-color link_visited_color mix(@tn_purple, #c1c5dd, 0.38);
 
 /*
  * Base windows
  */
 
-@define-color window_bg_color mix(@tn_bg, #0f1417, 0.18);
-@define-color window_fg_color mix(@tn_fg, #dfe3e7, 0.12);
+@define-color window_bg_color mix(@tn_bg, #121318, 0.18);
+@define-color window_fg_color mix(@tn_fg, #e3e1e9, 0.12);
 
 /*
  * Headerbars / toolbars
  */
 
-@define-color headerbar_bg_color mix(@tn_bg_dark, #0f1417, 0.16);
+@define-color headerbar_bg_color mix(@tn_bg_dark, #121318, 0.16);
 @define-color headerbar_fg_color @window_fg_color;
 
 /*
  * Popovers / menus
  */
 
-@define-color popover_bg_color mix(@tn_bg_highlight, #1b2023, 0.20);
+@define-color popover_bg_color mix(@tn_bg_highlight, #1e1f25, 0.20);
 @define-color popover_fg_color @window_fg_color;
 
 /*
  * Main content views
  */
 
-@define-color view_bg_color mix(@tn_bg_dark, #0f1417, 0.14);
+@define-color view_bg_color mix(@tn_bg_dark, #121318, 0.14);
 @define-color view_fg_color @window_fg_color;
 
 /*
  * Cards / raised containers / entries / buttons
  */
 
-@define-color card_bg_color mix(@tn_bg_highlight, #1b2023, 0.22);
+@define-color card_bg_color mix(@tn_bg_highlight, #1e1f25, 0.22);
 @define-color card_fg_color @window_fg_color;
 
 /*
  * Generic sidebars
  */
 
-@define-color sidebar_bg_color mix(@tn_bg_dark, #0f1417, 0.12);
+@define-color sidebar_bg_color mix(@tn_bg_dark, #121318, 0.12);
 @define-color sidebar_fg_color @window_fg_color;
-@define-color sidebar_border_color mix(@tn_border, #41484d, 0.20);
+@define-color sidebar_border_color mix(@tn_border, #45464f, 0.20);
 @define-color sidebar_backdrop_color @window_bg_color;
 
 /*
  * Borders / disabled state
  */
 
-@define-color borders mix(@tn_border, #41484d, 0.20);
-@define-color unfocused_borders mix(@tn_border, #262b2e, 0.10);
+@define-color borders mix(@tn_border, #45464f, 0.20);
+@define-color unfocused_borders mix(@tn_border, #292a2f, 0.10);
 
-@define-color insensitive_bg_color mix(@tn_bg_highlight, #171c1f, 0.15);
-@define-color insensitive_fg_color mix(@tn_fg_muted, #c0c7cd, 0.20);
+@define-color insensitive_bg_color mix(@tn_bg_highlight, #1a1b21, 0.15);
+@define-color insensitive_fg_color mix(@tn_fg_muted, #c6c6d0, 0.20);
 
 /* -------------------------------------------------------------------------
  * GTK3 compatibility names
@@ -146,10 +146,10 @@
  * Semantic colors, still Tokyonight-flavoured
  * ---------------------------------------------------------------------- */
 
-@define-color success_color mix(@tn_green, #c9c1ea, 0.25);
+@define-color success_color mix(@tn_green, #e3badb, 0.25);
 @define-color success_fg_color @tn_bg_dark;
 
-@define-color warning_color mix(@tn_yellow, #b5c9d7, 0.25);
+@define-color warning_color mix(@tn_yellow, #c1c5dd, 0.25);
 @define-color warning_fg_color @tn_bg_dark;
 
 @define-color error_color mix(@tn_red, #ffb4ab, 0.25);
@@ -161,15 +161,15 @@
 
 @define-color surface_color @view_bg_color;
 @define-color surface_dim_color @window_bg_color;
-@define-color surface_bright_color mix(@tn_bg_highlight, #353a3d, 0.16);
+@define-color surface_bright_color mix(@tn_bg_highlight, #38393f, 0.16);
 
-@define-color surface_container_lowest_color mix(@tn_bg_dark, #0a0f12, 0.10);
-@define-color surface_container_low_color mix(@tn_bg, #171c1f, 0.14);
-@define-color surface_container_color mix(@tn_bg_highlight, #1b2023, 0.18);
-@define-color surface_container_high_color mix(@tn_bg_highlight, #262b2e, 0.22);
-@define-color surface_container_highest_color mix(@tn_bg_highlight, #313539, 0.26);
+@define-color surface_container_lowest_color mix(@tn_bg_dark, #0d0e13, 0.10);
+@define-color surface_container_low_color mix(@tn_bg, #1a1b21, 0.14);
+@define-color surface_container_color mix(@tn_bg_highlight, #1e1f25, 0.18);
+@define-color surface_container_high_color mix(@tn_bg_highlight, #292a2f, 0.22);
+@define-color surface_container_highest_color mix(@tn_bg_highlight, #34343a, 0.26);
 
-@define-color outline_color mix(@tn_border, #8a9297, 0.20);
+@define-color outline_color mix(@tn_border, #8f909a, 0.20);
 @define-color outline_variant_color @borders;
 
 /* -------------------------------------------------------------------------
