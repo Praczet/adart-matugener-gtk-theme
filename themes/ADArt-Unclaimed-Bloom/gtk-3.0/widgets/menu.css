@@ -10,9 +10,9 @@ menu,
 .context-menu,
 popover,
 popover.background {
-  background-color: @popover_bg_color;
+  background-color: alpha(@popover_bg_color, 0.90);
   color: @popover_fg_color;
-  border: 1px solid @borders;
+  border: 1px solid alpha(@borders, 0.88);
   border-radius: 6px;
   padding: 4px;
 }
@@ -22,9 +22,9 @@ menu:backdrop,
 .context-menu:backdrop,
 popover:backdrop,
 popover.background:backdrop {
-  background-color: @popover_bg_color;
+  background-color: alpha(@popover_bg_color, 0.86);
   color: @insensitive_fg_color;
-  border-color: @unfocused_borders;
+  border-color: alpha(@unfocused_borders, 0.82);
 }
 
 menuitem,
