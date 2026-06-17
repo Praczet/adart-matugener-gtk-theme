@@ -99,10 +99,10 @@ dialog buttonbox button,
 .dialog .dialog-action-area button,
 .dialog actionbar button,
 .dialog buttonbox button {
-  background-color: @card_bg_color;
+  background-color: alpha(@window_bg_color, 0.08);
   background-image: none;
-  color: @card_fg_color;
-  border: 1px solid @borders;
+  color: @window_fg_color;
+  border: 1px solid alpha(@borders, 0.38);
   border-radius: 6px;
   box-shadow: none;
   min-height: 24px;
@@ -118,10 +118,10 @@ dialog buttonbox button:hover,
 .dialog .dialog-action-area button:hover,
 .dialog actionbar button:hover,
 .dialog buttonbox button:hover {
-  background-color: @surface_container_high_color;
+  background-color: alpha(@surface_container_high_color, 0.62);
   background-image: none;
-  color: @card_fg_color;
-  border-color: @borders;
+  color: @window_fg_color;
+  border-color: alpha(@borders, 0.68);
   box-shadow: none;
 }
 
@@ -137,10 +137,10 @@ dialog actionbar button:focus,
 dialog buttonbox button:active,
 dialog buttonbox button:checked,
 dialog buttonbox button:focus {
-  background-color: @accent_bg_color;
+  background-color: alpha(@accent_bg_color, 0.32);
   background-image: none;
   color: @accent_fg_color;
-  border-color: @accent_bg_color;
+  border-color: alpha(@accent_bg_color, 0.72);
   box-shadow: none;
 }
 
@@ -148,10 +148,10 @@ dialog button:backdrop,
 dialog .dialog-action-area button:backdrop,
 dialog actionbar button:backdrop,
 dialog buttonbox button:backdrop {
-  background-color: @card_bg_color;
+  background-color: alpha(@window_bg_color, 0.05);
   background-image: none;
   color: @insensitive_fg_color;
-  border-color: @unfocused_borders;
+  border-color: alpha(@unfocused_borders, 0.30);
   box-shadow: none;
 }
 

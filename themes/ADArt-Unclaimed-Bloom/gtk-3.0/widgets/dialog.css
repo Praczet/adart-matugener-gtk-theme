@@ -35,3 +35,38 @@ notebook frame grid {
   color: @window_fg_color;
   border-color: @borders;
 }
+
+/* Dialog action buttons contain GtkBox/GtkLabel children.
+ * Keep those transparent so the button surface, not the child box,
+ * defines the visual state. */
+dialog button box,
+dialog button label,
+dialog button image,
+dialog .dialog-action-area button box,
+dialog .dialog-action-area button label,
+dialog .dialog-action-area button image,
+dialog actionbar button box,
+dialog actionbar button label,
+dialog actionbar button image,
+dialog buttonbox button box,
+dialog buttonbox button label,
+dialog buttonbox button image,
+.dialog button box,
+.dialog button label,
+.dialog button image,
+.dialog .dialog-action-area button box,
+.dialog .dialog-action-area button label,
+.dialog .dialog-action-area button image,
+.dialog actionbar button box,
+.dialog actionbar button label,
+.dialog actionbar button image,
+.dialog buttonbox button box,
+.dialog buttonbox button label,
+.dialog buttonbox button image {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}

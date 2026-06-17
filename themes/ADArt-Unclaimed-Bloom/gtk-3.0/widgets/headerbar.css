@@ -30,6 +30,59 @@ toolbar:backdrop,
   border-color: @unfocused_borders;
 }
 
+/* Dialog headerbars should blend into the window a bit more.
+ * This keeps preference/property windows from looking like the title
+ * is sitting on a separate dark slab. */
+dialog headerbar,
+dialog .titlebar,
+dialog .titlebar:not(headerbar),
+.dialog headerbar,
+.dialog .titlebar,
+.dialog .titlebar:not(headerbar) {
+  background-color: mix(@window_bg_color, @headerbar_bg_color, 0.42);
+  color: @window_fg_color;
+  border-color: mix(@borders, @window_bg_color, 0.60);
+}
+
+dialog headerbar label,
+dialog .titlebar label,
+.dialog headerbar label,
+.dialog .titlebar label {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+dialog headerbar > box,
+dialog headerbar > box > box,
+dialog headerbar box.vertical,
+dialog .titlebar > box,
+dialog .titlebar > box > box,
+dialog .titlebar box.vertical,
+.dialog headerbar > box,
+.dialog headerbar > box > box,
+.dialog headerbar box.vertical,
+.dialog .titlebar > box,
+.dialog .titlebar > box > box,
+.dialog .titlebar box.vertical,
+dialog headerbar .title,
+dialog headerbar .subtitle,
+dialog .titlebar .title,
+dialog .titlebar .subtitle,
+.dialog headerbar .title,
+.dialog headerbar .subtitle,
+.dialog .titlebar .title,
+.dialog .titlebar .subtitle {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
 /* Headerbar / toolbar buttons */
 
 headerbar button,
@@ -83,6 +136,14 @@ toolbar button:checked,
   background-image: none;
   color: @accent_fg_color;
   border-color: @accent_bg_color;
+}
+
+dialog headerbar button,
+dialog .titlebar button,
+.dialog headerbar button,
+.dialog .titlebar button {
+  background-color: alpha(@window_bg_color, 0.10);
+  border-color: alpha(@borders, 0.34);
 }
 
 /* Toolbar menu buttons / tool items */
