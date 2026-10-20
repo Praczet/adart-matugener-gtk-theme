@@ -23,19 +23,6 @@ dialog scrolledwindow,
 
 /* Frames inside dialogs */
 
-dialog frame,
-dialog frame > border,
-dialog frame box,
-dialog frame grid,
-notebook frame,
-notebook frame > border,
-notebook frame box,
-notebook frame grid {
-  background-color: @window_bg_color;
-  color: @window_fg_color;
-  border-color: @borders;
-}
-
 /* Dialog action buttons contain GtkBox/GtkLabel children.
  * Keep those transparent so the button surface, not the child box,
  * defines the visual state. */

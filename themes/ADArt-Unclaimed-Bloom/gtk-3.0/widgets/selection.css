@@ -26,25 +26,3 @@ stacksidebar row:selected:focus {
   border-color: @accent_bg_color;
 }
 
-*:selected:backdrop,
-*:selected:focus:backdrop,
-.view:selected:backdrop,
-.view:selected:focus:backdrop,
-.view text:selected:backdrop,
-.view text:selected:focus:backdrop,
-treeview:selected:backdrop,
-treeview:selected:focus:backdrop,
-treeview.view:selected:backdrop,
-treeview.view:selected:focus:backdrop,
-iconview:selected:backdrop,
-iconview:selected:focus:backdrop,
-.sidebar row:selected:backdrop,
-.sidebar row:selected:focus:backdrop,
-placessidebar row:selected:backdrop,
-placessidebar row:selected:focus:backdrop,
-stacksidebar row:selected:backdrop,
-stacksidebar row:selected:focus:backdrop {
-  background-color: @accent_backdrop_bg_color;
-  color: @accent_backdrop_fg_color;
-  border-color: @accent_backdrop_bg_color;
-}

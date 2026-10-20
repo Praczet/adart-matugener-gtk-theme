@@ -14,32 +14,10 @@ infobar {
   padding: 6px 8px;
 }
 
-infobar revealer,
-infobar revealer box,
-infobar box {
-  background-color: transparent;
-  background-image: none;
-  color: inherit;
-  border: none;
-  box-shadow: none;
-}
-
-infobar.info revealer,
-infobar.info revealer box,
-infobar.info box {
-  color: @window_fg_color;
-}
-
 infobar.info {
   background-color: mix(@surface_container_color, @link_color, 0.26);
   color: @window_fg_color;
   border-color: mix(@borders, @link_color, 0.58);
-}
-
-infobar.warning revealer,
-infobar.warning revealer box,
-infobar.warning box {
-  color: @window_fg_color;
 }
 
 infobar.warning {
@@ -48,22 +26,10 @@ infobar.warning {
   border-color: mix(@borders, @warning_color, 0.62);
 }
 
-infobar.question revealer,
-infobar.question revealer box,
-infobar.question box {
-  color: @window_fg_color;
-}
-
 infobar.question {
   background-color: mix(@surface_container_color, @accent_bg_color, 0.30);
   color: @window_fg_color;
   border-color: mix(@borders, @accent_bg_color, 0.64);
-}
-
-infobar.error revealer,
-infobar.error revealer box,
-infobar.error box {
-  color: @window_fg_color;
 }
 
 infobar.error {
@@ -72,20 +38,10 @@ infobar.error {
   border-color: mix(@borders, @error_color, 0.66);
 }
 
-infobar label,
-infobar image {
-  color: inherit;
-}
-
 infobar button {
   background-color: alpha(@card_bg_color, 0.88);
   color: @card_fg_color;
   border-color: alpha(@borders, 0.85);
-}
-
-infobar button:hover {
-  background-color: @surface_container_high_color;
-  color: @window_fg_color;
 }
 
 infobar button:active,

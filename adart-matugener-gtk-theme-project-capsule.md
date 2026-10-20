@@ -1,307 +1,157 @@
-# Adart-Matugener GTK Theme Project Capsule
+# ADArt-Unclaimed-Bloom GTK Theme Project Capsule
 
-Generated: 2026-06-03
+Updated: 2026-10-20
 
 ## Project Identity
 
-This repository builds and installs `Adart-Moonmix`, a GTK theme derived from an older GTK Moonmix user CSS override setup.
+This repository builds and installs `ADArt-Unclaimed-Bloom`, a GTK theme that
+grew out of an older GTK Moonmix user CSS override setup (formerly
+`Adart-Moonmix`).
 
-The visual target is Tokyonight Moon with wallpaper-aware Matugen color influence:
+Colours come from Unclaimed Bloom, which mixes a base palette with Matugen
+wallpaper colours and re-plants the GTK palette on every wallpaper change.
+Widget coverage comes from a vendored adw-gtk3 base; this repo adds the ADArt
+look on top.
 
-- dark navy/purple base surfaces
-- muted contrast
-- restrained accent color
-- Material/Matugen palette integration without becoming a generic Matugen theme
+GTK3 is the main target. GTK4 support covers plain GTK4 apps such as
+`pavucontrol`. libadwaita apps load their own stylesheet and only pick up the
+palette copy Unclaimed Bloom writes to `~/.config/gtk-4.0/gtk.css`.
 
-GTK3 is the main target. GTK4 support exists for plain GTK4 apps such as `pavucontrol`, but this project intentionally does not claim full libadwaita theming.
-
-## Current Repository Shape
+## Repository Shape
 
 ```text
 README.md
-docs/
-  PROJECT_PLAN.md
-  prompts/
+adart-matugener-gtk-theme-project-capsule.md
 gimp/
-  Adart-Moonmix/
+  ADArt-Unclaimed-Bloom/
     gimp.css
     gimp-dark.css
-matugen/
-  matugen.config.toml
-  templates/
-    gtk-adart-moonmix.css
 scripts/
-  dev-install
   install-theme
-  update-matugen-palette
+  dev-install
 themes/
-  Adart-Moonmix/
+  ADArt-Unclaimed-Bloom/
     gtk-3.0/
       gtk.css
       gtk-dark.css
-      matugen-generated.css
+      gtk-adart-unclaimed-bloom.css   # palette, generated
+      base/                           # adw-gtk3 + bridge.css
       widgets/
       apps/
     gtk-4.0/
       gtk.css
       gtk-dark.css
-      matugen-generated.css
+      gtk-adart-unclaimed-bloom.css   # palette, generated
+      base/                           # adw-gtk3 libadwaita.css + bridge.css
       widgets.css
-input/
+input/   (ignored, old override snapshot)
+docs/    (ignored, local notes)
 ```
 
-`input/` is intentionally ignored by Git and acts as a local reference snapshot of the previous override setup.
-
-## Core Architecture
-
-The project separates palette generation from widget styling.
-
-`matugen/templates/gtk-adart-moonmix.css` defines the color system. It mixes Tokyonight Moon base colors with Matugen wallpaper colors and emits GTK color aliases such as:
-
-- `window_bg_color`
-- `window_fg_color`
-- `accent_bg_color`
-- `accent_fg_color`
-- `view_bg_color`
-- `card_bg_color`
-- `borders`
-- `insensitive_fg_color`
-- semantic colors for success, warning, and error
-- GTK3 compatibility names such as `theme_bg_color`, `theme_selected_bg_color`
-- app-derived aliases such as Thunar sidebar colors
-
-`matugen/matugen.config.toml` writes the same generated palette template to both:
-
-```text
-themes/Adart-Moonmix/gtk-3.0/matugen-generated.css
-themes/Adart-Moonmix/gtk-4.0/matugen-generated.css
-```
-
-Static CSS files then apply those variables to GTK selectors.
-
-## GTK3 Entrypoint
-
-`themes/Adart-Moonmix/gtk-3.0/gtk.css` is the main theme entrypoint.
-
-Current import order:
-
-```css
-@import url("matugen-generated.css");
-
-@import url("widgets/base.css");
-@import url("widgets/headerbar.css");
-@import url("widgets/view.css");
-@import url("widgets/selection.css");
-@import url("widgets/input.css");
-@import url("widgets/button.css");
-@import url("widgets/menu.css");
-@import url("widgets/scrollbar.css");
-@import url("widgets/control.css");
-@import url("widgets/notebook.css");
-@import url("widgets/dialog.css");
-@import url("widgets/panel.css");
-@import url("widgets/infobar.css");
-@import url("widgets/label.css");
-
-@import url("apps/thunar.css");
-@import url("apps/gimp.css");
-@import url("apps/yad.css");
-
-@import url("widgets/final.css");
-```
-
-The order matters:
-
-- generated palette first
-- generic GTK3 widget rules next
-- app-specific fixes after generic rules
-- `widgets/final.css` last for cleanup such as removing inherited gradients
-
-## GTK3 Widget Modules
-
-Widget CSS is split by responsibility:
-
-- `base.css`: windows, dialogs, background
-- `headerbar.css`: headerbars, titlebars, toolbars, toolbar buttons
-- `view.css`: text views, tree views, icon views, sidebars
-- `selection.css`: selected and backdrop selected states
-- `input.css`: entries, spin buttons, comboboxes, popup controls
-- `button.css`: buttons, suggested/destructive actions, disabled/backdrop states
-- `menu.css`: menus, popovers, model buttons, menubars
-- `scrollbar.css`: troughs, sliders, backdrop slider state
-- `control.css`: scales, progress bars, checks, radios, switches
-- `notebook.css`: notebook headers, tabs, page content
-- `dialog.css`: dialog internals and frames
-- `panel.css`: frames, lists, rows, settings-like panels
-- `infobar.css`: GtkInfoBar variants
-- `label.css`: label normalization, links, tooltips
-- `final.css`: last-pass reset for gradients/background images
-
-Common rule patterns:
-
-- explicit `background-image: none`
-- explicit `box-shadow: none`
-- explicit `:backdrop` handling
-- selected-state colors use active and unfocused/backdrop palette aliases
-- nested `label`, `box`, and `image` nodes often inherit color and clear backgrounds
-
-## App-Specific GTK3 CSS
-
-`themes/Adart-Moonmix/gtk-3.0/apps/thunar.css`
-
-Thunar is a major target and has the largest app-specific file. GTK Inspector findings show its sidebar is not just a normal `GtkPlacesSidebar`; useful selectors include:
-
-```css
-.thunar .shortcuts-pane
-.thunar .shortcuts-pane .view
-.thunar .shortcuts-pane treeview
-```
-
-The file handles sidebar background, splitter cleanup, hover/selected rows, icon/list view behavior, and inactive-window states.
-
-`themes/Adart-Moonmix/gtk-3.0/apps/gimp.css`
-
-Handles GIMP GTK3/welcome-dialog cleanup inside the normal GTK theme package, especially nested welcome dialog surfaces and inherited backgrounds.
-
-`themes/Adart-Moonmix/gtk-3.0/apps/yad.css`
-
-Handles YAD dialog styling. It increases the prompt label size for `label#yad-dialog-label` and suppresses the stock Cancel button icon using positional selectors because the Cancel button has no stable name/class.
-
-## GTK4 Support
-
-`themes/Adart-Moonmix/gtk-4.0/gtk.css` imports:
-
-```css
-@import url("matugen-generated.css");
-@import url("widgets.css");
-```
-
-`themes/Adart-Moonmix/gtk-4.0/widgets.css` is a conservative plain GTK4 widget layer. It styles windows, dialogs, headerbars, notebooks, buttons, inputs, selections, menus/popovers, scrollbars, switches, checks, radios, scales, progress bars, and infobars.
-
-This layer is useful for plain GTK4 apps. It is not a full libadwaita theme.
-
-## GIMP Theme Layer
-
-GIMP has a separate app theme under:
-
-```text
-gimp/Adart-Moonmix/
-  gimp.css
-  gimp-dark.css
-```
-
-`gimp.css` imports `gimp-dark.css`.
-
-`gimp-dark.css` imports the installed GTK3 generated palette from:
-
-```text
-file:///home/adam/.local/share/themes/Adart-Moonmix/gtk-3.0/matugen-generated.css
-```
-
-It maps GIMP's own theme color variables back to Adart-Moonmix variables, then imports:
-
-```text
-file:///usr/share/gimp/3.0/themes/Default/common-dark.css
-```
-
-This is necessary because GIMP uses its own application theme layer and does not reliably inherit normal GTK theme colors.
-
-Maintenance note: the absolute import path means the installed theme location is assumed. If the install location changes, the GIMP theme import should change too.
-
-## Scripts And Workflows
-
-Generate a palette from a wallpaper:
-
-```sh
-scripts/update-matugen-palette image /path/to/wallpaper.jpg
-```
-
-This runs:
-
-```sh
-matugen -c matugen/matugen.config.toml ...
-```
-
-Install for the current user:
-
-```sh
-scripts/install-theme
-```
-
-This installs:
-
-```text
-~/.local/share/themes/Adart-Moonmix
-~/.config/GIMP/3.2/themes/Adart-Moonmix
-```
-
-Development reinstall:
-
-```sh
-scripts/dev-install
-```
-
-This reinstalls the theme and runs `thunar -q` if Thunar is available so a fresh launch reloads CSS.
-
-## Test Targets
-
-Recommended GTK3 checks:
-
-```sh
-gtk3-demo
-gtk3-widget-factory
-thunar
-```
-
-Recommended GTK4 check:
-
-```sh
-pavucontrol
-```
-
-GIMP check:
-
-```text
-Edit > Preferences > Interface > Theme > Adart-Moonmix
-```
-
-Hyprland/GTK theme selection:
-
-```text
-Adart-Moonmix
-```
-
-Avoid stale `GTK_THEME` overrides unless explicitly setting it to `Adart-Moonmix`.
-
-## Current Git State Observed
-
-At analysis time, the worktree was dirty:
-
-```text
- M themes/Adart-Moonmix/gtk-3.0/gtk.css
-?? themes/Adart-Moonmix/gtk-3.0/apps/yad.css
-```
-
-The tracked modification imports `apps/yad.css` from the GTK3 entrypoint. The `yad.css` file is untracked.
-
-This capsule does not revert or modify those files.
-
-## Design Constraints And Gotchas
-
-- Do not hand-edit `matugen-generated.css` except for temporary tests.
-- Edit palette logic in `matugen/templates/gtk-adart-moonmix.css`.
-- App CSS should apply palette variables, not invent new color systems.
-- Thunar row rounding differs by view mode; tree/list/detail views do not reliably support rounded selected rows.
-- Backdrop state matters for inactive windows and must be styled explicitly.
-- Many GTK controls carry inherited gradients/images/shadows, so color-only rules are often insufficient.
-- GTK4/libadwaita boundaries are real; avoid documenting or implementing GTK4 support as broader than it is.
-- GIMP's theme path assumptions are currently user/install-location specific.
-
-## Useful Next Moves
-
-1. Decide whether `apps/yad.css` should be committed and documented in `README.md`.
-2. Add lightweight smoke checks for generated files and expected imports, possibly via shell script.
-3. Consider making the GIMP palette import path less hard-coded if installation outside the current user path matters.
-4. Keep expanding GTK3 coverage from observed GTK Inspector nodes, especially where apps expose custom widget trees.
-5. Treat GTK4 as plain GTK4 support unless a separate libadwaita strategy is deliberately chosen.
-
+## Layer Order
+
+Both `gtk.css` entrypoints import, in order:
+
+1. `base/` – vendored adw-gtk3 v6.5 dark (LGPL-2.1, `base/LICENSE-adw-gtk3`).
+   GTK3: `adw-gtk3-dark.css` + `assets/`. GTK4: `libadwaita.css`,
+   `libadwaita-tweaks.css` + `assets/`. It styles every widget using
+   libadwaita colour names (`window_bg_color`, `accent_bg_color`, ...).
+2. `gtk-adart-unclaimed-bloom.css` – the generated palette. Later
+   `@define-color` wins, so it recolours the whole base.
+3. `base/bridge.css` – maps adw-gtk3 names the palette does not emit
+   (`dialog_bg_color`, `thumbnail_*`, `secondary_sidebar_*`, ...). The GTK4
+   bridge also re-points `--accent-*` CSS variables that the tweaks file pins
+   to blue.
+4. GTK3 `widgets/*.css` then `apps/*.css`, GTK4 `widgets.css` – the ADArt look.
+
+Without the base, GTK3/GTK4 fall back to bare unstyled defaults for every
+widget the widget layer does not mention. Do not remove it.
+
+Do not edit files under `base/` except `bridge.css`; update adw-gtk3 by
+replacing them from a newer release.
+
+## Palette Pipeline (Unclaimed Bloom)
+
+- Config: `~/.config/unclaimed-bloom/` (not a git repo). Source of truth with
+  history: `~/Development/Hyprland/unclaimed-bloom/` – mirror edits there.
+- Current profile `desktop-graphite-tweak`; its GTK/GIMP run uses profile
+  `daily-gtk`: base palette `nord-tweak-dark` + Matugen, mood `dormant`.
+- Recipe: `targets/gtk/recipes/nord-tweak-dark.json`.
+  Template: `targets/gtk/templates/unclaimed-bloom.css`.
+- Plant hook `targets/gtk/hooks/plant.json` copies the rendered palette to
+  `~/.local/share/themes/ADArt-Unclaimed-Bloom/gtk-{3,4}.0/gtk-adart-unclaimed-bloom.css`
+  and `~/.config/gtk-4.0/gtk.css`, then sets the gsettings theme. It does not
+  run `install-theme`.
+- Regenerate by hand: `spore sow daily-gtk gtk && spore grow daily-gtk gtk && spore plant daily-gtk gtk`.
+
+Recipe notes:
+
+- Unclaimed Bloom mixes colours in plain RGB. Mixing Nord blue with a
+  near-complementary wallpaper colour lands on grey, so the accent is mostly
+  wallpaper (`base: blue, source: primary, mix: 0.75`).
+- Matugen's dark `primary` is always a light pastel, so `accent_fg_color` is
+  dark (`background_dark`).
+- The template brightens text toward `{{selection_fg}}`.
+
+The palette copies in this repo are only a fallback for a fresh install.
+`scripts/install-theme` keeps an already planted palette in the installed
+theme.
+
+## GTK3 Widget Layer
+
+- `widgets/` split by responsibility: base, headerbar, view, selection, input,
+  button, menu, scrollbar, control, notebook, dialog, panel, infobar, label,
+  final.
+- Trimmed on 2026-10-20: 69 whole rules that produced no visible change over
+  the adw-gtk3 base were removed (pixel-verified, see Testing). Rules the test
+  gallery cannot exercise (app-specific nodes, `:visited`, ...) were kept.
+- Menus/popovers are 80% opaque (76% backdrop); Hyprland blurs behind them
+  via `decoration:blur:popups` in `~/.config/hypr/modules/decoration.lua`.
+- `apps/thunar.css` – Thunar sidebar (`.thunar .shortcuts-pane`), view modes,
+  backdrop.
+- `apps/gimp.css` – GIMP GTK3 dialogs. `apps/yad.css` – YAD dialog label and
+  Cancel icon.
+- `label.css` lets labels in `:checked` and `.suggested-action` buttons inherit
+  the button colour (dark on solid accent).
+- Buttons use `font-weight: normal` (adw-gtk3 makes them bold).
+
+Colour rule of thumb: `accent_fg_color` is for text on a solid (or >= ~70%)
+accent. Translucent accent tints over dark surfaces need `window_fg_color`
+(this broke the focused DBeaver dialog button once).
+
+## GIMP Layer
+
+`gimp/ADArt-Unclaimed-Bloom/gimp-dark.css` imports the installed palette
+(`file:///home/adam/.local/share/themes/ADArt-Unclaimed-Bloom/gtk-3.0/gtk-adart-unclaimed-bloom.css`)
+and GIMP's `common-dark.css`. The absolute path assumes the per-user install.
+
+## Scripts
+
+- `scripts/install-theme` – installs to `~/.local/share/themes/ADArt-Unclaimed-Bloom`
+  and `~/.config/GIMP/3.2/themes/ADArt-Unclaimed-Bloom`, keeping the planted
+  palette.
+- `scripts/dev-install` – install + `thunar -q`.
+
+## Testing
+
+Manual: `gtk3-widget-factory`, `gtk3-demo`, `thunar`, `pavucontrol`, DBeaver
+(native GTK parts; reads colours only at startup), GIMP.
+
+Headless (no windows on the desktop):
+
+- Parse check: PyGObject `Gtk.CssProvider` with the `parsing-error` signal,
+  GTK3 and GTK4.
+- Render: GTK3 `Gtk.OffscreenWindow`; GTK4 via `gtk4-broadwayd` +
+  `GDK_BACKEND=broadway` and `Gtk.WidgetPaintable`.
+- Offscreen/Broadway windows are always `:backdrop`. Simulate a focused
+  window by loading a copy of the CSS with `:backdrop` renamed to a
+  never-matching pseudo-class (`:drop(active)`).
+
+## Gotchas
+
+- Do not hand-edit `gtk-adart-unclaimed-bloom.css`; change the recipe or
+  template.
+- Backdrop state must be styled explicitly; check focused and unfocused.
+- Thunar row rounding differs by view mode.
+- GTK4/libadwaita boundaries are real; do not claim full libadwaita theming.
+- Apps that read GTK colours only at startup (DBeaver/SWT) need a restart.

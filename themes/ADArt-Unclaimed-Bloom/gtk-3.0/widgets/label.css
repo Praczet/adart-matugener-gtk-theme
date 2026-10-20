@@ -3,10 +3,6 @@
  * Label and text color normalization.
  */
 
-label {
-  color: inherit;
-}
-
 label,
 button label,
 row label,

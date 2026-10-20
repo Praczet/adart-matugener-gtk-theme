@@ -21,28 +21,6 @@ notebook header.right {
   box-shadow: none;
 }
 
-notebook > header > button,
-notebook header button,
-notebook > header > button:hover,
-notebook header button:hover,
-notebook > header > button:active,
-notebook header button:active {
-  background-color: transparent;
-  background-image: none;
-  border: none;
-  border-radius: 4px;
-  box-shadow: none;
-  color: @window_fg_color;
-  min-height: 18px;
-  min-width: 18px;
-  padding: 2px;
-}
-
-notebook > header > button:hover,
-notebook header button:hover {
-  background-color: @surface_container_high_color;
-}
-
 notebook tab {
   background-color: @surface_container_color;
   background-image: none;
@@ -51,29 +29,6 @@ notebook tab {
   box-shadow: none;
 
   padding: 6px 12px;
-}
-
-notebook tab box,
-notebook tab label,
-notebook tab image,
-notebook tab button,
-notebook tab button box,
-notebook tab button label,
-notebook tab button image {
-  background: none;
-  background-color: transparent;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  color: inherit;
-}
-
-notebook tab:hover {
-  background-color: @surface_container_high_color;
-  background-image: none;
-  color: @window_fg_color;
-  border-color: @borders;
-  box-shadow: none;
 }
 
 notebook tab:checked,
@@ -91,44 +46,5 @@ notebook tab:checked image {
   color: @window_fg_color;
 }
 
-notebook tab:backdrop {
-  background-color: @surface_container_color;
-  background-image: none;
-  color: @insensitive_fg_color;
-  border-color: @unfocused_borders;
-  box-shadow: none;
-}
-
-notebook tab:checked:backdrop,
-notebook tab:checked:hover:backdrop,
-notebook tab:checked:focus:backdrop {
-  background-color: alpha(@accent_backdrop_bg_color, 0.45);
-  background-image: none;
-  color: @window_fg_color;
-  border-color: @accent_backdrop_bg_color;
-  box-shadow: inset 0 -3px @accent_backdrop_bg_color;
-}
-
-notebook tab:checked:backdrop label,
-notebook tab:checked:backdrop image {
-  color: @window_fg_color;
-}
-
 /* Notebook page/content area */
 
-notebook stack,
-notebook > stack,
-notebook > stack > box,
-notebook > stack > grid,
-notebook > stack > scrolledwindow,
-notebook > stack > viewport,
-notebook box,
-notebook grid,
-notebook frame,
-notebook viewport,
-notebook scrolledwindow {
-  background-color: @window_bg_color;
-  background-image: none;
-  color: @window_fg_color;
-  border-color: @borders;
-}

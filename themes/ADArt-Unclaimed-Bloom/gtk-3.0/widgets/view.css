@@ -3,28 +3,6 @@
  * Main content views, tree views, icon views, and generic sidebars.
  */
 
-.view,
-.view text,
-textview,
-textview text,
-treeview,
-treeview.view,
-iconview {
-  background-color: @view_bg_color;
-  color: @view_fg_color;
-}
-
-.view:backdrop,
-.view text:backdrop,
-textview:backdrop,
-textview text:backdrop,
-treeview:backdrop,
-treeview.view:backdrop,
-iconview:backdrop {
-  background-color: @view_bg_color;
-  color: @insensitive_fg_color;
-}
-
 /* Tree/list headers */
 
 treeview header button,

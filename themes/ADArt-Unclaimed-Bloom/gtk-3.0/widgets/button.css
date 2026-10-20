@@ -13,17 +13,7 @@ button {
   min-height: 24px;
   min-width: 24px;
   padding: 4px 10px;
-}
-
-button box,
-button label,
-button image {
-  background: none;
-  background-color: transparent;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  color: inherit;
+  font-weight: normal; /* adw-gtk3 base makes buttons bold */
 }
 
 button:hover {
@@ -78,13 +68,6 @@ button.minimize {
 button:disabled,
 button:disabled label {
   background-color: @insensitive_bg_color;
-  color: @insensitive_fg_color;
-  border-color: @unfocused_borders;
-}
-
-button:backdrop {
-  background-color: @card_bg_color;
-  background-image: none;
   color: @insensitive_fg_color;
   border-color: @unfocused_borders;
 }
@@ -145,17 +128,6 @@ dialog buttonbox button:focus {
   box-shadow: none;
 }
 
-dialog button:backdrop,
-dialog .dialog-action-area button:backdrop,
-dialog actionbar button:backdrop,
-dialog buttonbox button:backdrop {
-  background-color: alpha(@window_bg_color, 0.05);
-  background-image: none;
-  color: @insensitive_fg_color;
-  border-color: alpha(@unfocused_borders, 0.30);
-  box-shadow: none;
-}
-
 dialog button.destructive-action,
 dialog .dialog-action-area button.destructive-action,
 dialog actionbar button.destructive-action,
@@ -193,17 +165,6 @@ dialog buttonbox button.destructive-action:checked,
 /* Link buttons render as plain link text, not bordered buttons */
 
 button.link,
-button.link:hover,
-button.link:active,
-button.link:checked,
-button.link:backdrop {
-  background-color: transparent;
-  background-image: none;
-  border-color: transparent;
-  box-shadow: none;
-}
-
-button.link,
 button.link > label {
   color: @link_color;
 }
@@ -217,6 +178,3 @@ button.link:visited > label {
   color: @link_visited_color;
 }
 
-button.link:backdrop > label {
-  color: mix(@link_color, @window_bg_color, 0.25);
-}
