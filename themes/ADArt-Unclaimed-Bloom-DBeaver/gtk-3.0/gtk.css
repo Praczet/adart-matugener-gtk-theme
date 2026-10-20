@@ -1,0 +1,28 @@
+/*
+ * ADArt-Unclaimed-Bloom-DBeaver GTK3 entrypoint.
+ *
+ * GTK3 CSS cannot target one application, so DBeaver gets this variant via
+ * GTK_THEME (set by the dbeaver-bloom launcher). It is the main theme plus
+ * more transparent menus: DBeaver's dark UI behind the 80% menus made the
+ * Hyprland popup blur invisible.
+ *
+ * Expects the main theme installed next to it.
+ */
+
+@import url("../../ADArt-Unclaimed-Bloom/gtk-3.0/gtk.css");
+
+menu,
+.menu,
+.context-menu,
+popover,
+popover.background {
+  background-color: alpha(@popover_bg_color, 0.65);
+}
+
+menu:backdrop,
+.menu:backdrop,
+.context-menu:backdrop,
+popover:backdrop,
+popover.background:backdrop {
+  background-color: alpha(@popover_bg_color, 0.61);
+}

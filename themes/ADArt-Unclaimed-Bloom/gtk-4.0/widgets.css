@@ -5,11 +5,8 @@
  * complete libadwaita theme.
  */
 
-window,
-dialog,
-.background {
-  background-color: @window_bg_color;
-  color: @window_fg_color;
+window {
+  backdrop-filter: blur(10px);
 }
 
 headerbar,
@@ -71,11 +68,6 @@ notebook tab label,
 notebook > header > tabs > tab label {
   color: inherit;
   font-weight: 600;
-}
-
-notebook > stack {
-  background-color: @window_bg_color;
-  color: @window_fg_color;
 }
 
 sidebar,
@@ -201,6 +193,7 @@ button {
   min-height: 24px;
   min-width: 24px;
   padding: 4px 10px;
+  font-weight: normal; /* adw-gtk3 base makes buttons bold */
 }
 
 button box,

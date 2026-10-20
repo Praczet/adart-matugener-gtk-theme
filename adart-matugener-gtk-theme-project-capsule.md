@@ -119,6 +119,18 @@ Colour rule of thumb: `accent_fg_color` is for text on a solid (or >= ~70%)
 accent. Translucent accent tints over dark surfaces need `window_fg_color`
 (this broke the focused DBeaver dialog button once).
 
+## GTK4 Widget Layer And Variants
+
+- `gtk-4.0/widgets.css`: plain GTK4 look on top of the base. Buttons use
+  normal font weight; `window` has `backdrop-filter: blur(10px)` (supported by
+  GTK 4.24). A partial trim run removed 2 redundant rules; the rest was not
+  fully tested, so treat it as unverified.
+- `themes/ADArt-Unclaimed-Bloom-DBeaver/`: GTK3 variant that imports the main
+  theme and sets menus to 0.65 (0.61 backdrop). DBeaver is SWT on GTK3
+  (native Wayland); `dbeaver-bloom` in `~/Development/Hyprland/dbeaver-theme`
+  exports `GTK_THEME=ADArt-Unclaimed-Bloom-DBeaver` when it is installed.
+  `install-theme` installs every `ADArt-Unclaimed-Bloom-*` variant.
+
 ## GIMP Layer
 
 `gimp/ADArt-Unclaimed-Bloom/gimp-dark.css` imports the installed palette

@@ -34,6 +34,15 @@ done
 printf '%s\n' "Installed ADArt-Unclaimed-Bloom to $target_dir"
 printf '%s\n' 'Set gtk-theme-name=ADArt-Unclaimed-Bloom in your GTK settings to use it.'
 
+# Per-app variants import the main theme from the sibling directory.
+for variant_source in "$repo_dir"/themes/ADArt-Unclaimed-Bloom-*; do
+  [ -d "$variant_source" ] || continue
+  variant_target="$(dirname -- "$target_dir")/$(basename -- "$variant_source")"
+  rm -rf -- "$variant_target"
+  cp -a -- "$variant_source" "$variant_target"
+  printf '%s\n' "Installed variant $(basename -- "$variant_source") to $variant_target"
+done
+
 if [ -d "$gimp_source_dir" ]; then
   mkdir -p "$(dirname -- "$gimp_target_dir")"
   rm -rf -- "$gimp_target_dir"
