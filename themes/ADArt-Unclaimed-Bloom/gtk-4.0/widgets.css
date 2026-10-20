@@ -574,3 +574,11 @@ paned separator * {
   background-color: @accent_bg_color;
   color: @accent_fg_color;
 }
+
+/* Buttons that adw-gtk3 draws borderless; the generic button border above would box them */
+
+button.flat,
+windowcontrols > button,
+calendar > header > button {
+  border-color: transparent;
+}

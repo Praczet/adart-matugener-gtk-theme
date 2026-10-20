@@ -1,0 +1,33 @@
+/*
+ * bridge.css
+ * Maps adw-gtk3 (libadwaita) colour names that the Unclaimed Bloom palette
+ * does not emit, and re-points CSS variables that adw-gtk3 hard-codes.
+ *
+ * Imported after the palette.
+ */
+
+@define-color dialog_bg_color                   @window_bg_color;
+@define-color dialog_fg_color                   @window_fg_color;
+
+@define-color thumbnail_bg_color                @card_bg_color;
+@define-color thumbnail_fg_color                @card_fg_color;
+
+@define-color headerbar_border_color            @headerbar_fg_color;
+@define-color headerbar_backdrop_color          @window_bg_color;
+
+@define-color secondary_sidebar_bg_color        @view_bg_color;
+@define-color secondary_sidebar_fg_color        @sidebar_fg_color;
+@define-color secondary_sidebar_backdrop_color  @window_bg_color;
+@define-color secondary_sidebar_border_color    @sidebar_border_color;
+
+:root {
+  /* libadwaita-tweaks.css pins the accent to blue */
+  --accent-bg-color: @accent_bg_color;
+  --accent-fg-color: @accent_fg_color;
+  --accent-color: @accent_color;
+
+  --active-toggle-bg-color: alpha(@window_fg_color, 0.2);
+  --active-toggle-fg-color: @window_fg_color;
+  --overview-bg-color: @window_bg_color;
+  --overview-fg-color: @window_fg_color;
+}

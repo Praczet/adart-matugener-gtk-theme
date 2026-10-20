@@ -1,0 +1,20 @@
+/*
+ * bridge.css
+ * Maps adw-gtk3 colour names that the Unclaimed Bloom palette does not emit.
+ *
+ * Imported after the palette so these resolve to palette colours instead of
+ * adw-gtk3's hard-coded greys. Everything else in adw-gtk3 already derives
+ * from the libadwaita names the palette defines.
+ */
+
+@define-color dialog_bg_color          @window_bg_color;
+@define-color dialog_fg_color          @window_fg_color;
+
+@define-color thumbnail_bg_color       @card_bg_color;
+@define-color thumbnail_fg_color       @card_fg_color;
+
+@define-color headerbar_border_color   @headerbar_fg_color;
+@define-color headerbar_backdrop_color @window_bg_color;
+
+@define-color panel_bg_color           @headerbar_bg_color;
+@define-color panel_fg_color           @headerbar_fg_color;

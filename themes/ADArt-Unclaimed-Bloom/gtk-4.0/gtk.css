@@ -1,9 +1,17 @@
 /*
- * Minimal GTK4 entrypoint.
+ * GTK4 entrypoint.
  *
- * Unclaimed Bloom writes the palette to gtk-adart-unclaimed-bloom.css.
- * It does not claim full libadwaita theming.
+ * base/ is vendored adw-gtk3 (LGPL-2.1) and styles every plain GTK4 widget.
+ * Unclaimed Bloom writes the palette to gtk-adart-unclaimed-bloom.css, which
+ * redefines adw-gtk3's colour names. widgets.css applies the ADArt look on top.
+ * libadwaita apps load their own stylesheet and only follow the palette copy
+ * Unclaimed Bloom plants in ~/.config/gtk-4.0/gtk.css.
  */
 
+@import url("base/libadwaita.css");
+@import url("base/libadwaita-tweaks.css");
+
 @import url("gtk-adart-unclaimed-bloom.css");
+@import url("base/bridge.css");
+
 @import url("widgets.css");

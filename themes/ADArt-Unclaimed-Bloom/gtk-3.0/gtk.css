@@ -1,11 +1,16 @@
 /*
  * ADArt-Unclaimed-Bloom GTK3 entrypoint.
  *
- * Unclaimed Bloom writes the palette to gtk-adart-unclaimed-bloom.css.
- * Static files under widgets/ and apps/ apply that palette.
+ * base/adw-gtk3-dark.css (vendored adw-gtk3, LGPL-2.1) styles every widget.
+ * Unclaimed Bloom writes the palette to gtk-adart-unclaimed-bloom.css, which
+ * redefines adw-gtk3's colour names. Static files under widgets/ and apps/
+ * then apply the ADArt look on top.
  */
 
+@import url("base/adw-gtk3-dark.css");
+
 @import url("gtk-adart-unclaimed-bloom.css");
+@import url("base/bridge.css");
 
 @import url("widgets/base.css");
 @import url("widgets/headerbar.css");

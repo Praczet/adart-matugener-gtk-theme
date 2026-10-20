@@ -139,7 +139,8 @@ dialog buttonbox button:checked,
 dialog buttonbox button:focus {
   background-color: alpha(@accent_bg_color, 0.32);
   background-image: none;
-  color: @accent_fg_color;
+  /* tint over the dialog bg, so text stays light; accent_fg is for solid accent */
+  color: @window_fg_color;
   border-color: alpha(@accent_bg_color, 0.72);
   box-shadow: none;
 }

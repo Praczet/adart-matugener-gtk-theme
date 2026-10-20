@@ -16,6 +16,7 @@ themes/
     ├── gtk-3.0/
     │   ├── gtk.css
     │   ├── gtk-dark.css
+    │   ├── base/                           # vendored adw-gtk3 + bridge.css
     │   ├── gtk-adart-unclaimed-bloom.css   # palette (generated)
     │   ├── widgets/
     │   └── apps/
@@ -25,6 +26,7 @@ themes/
     └── gtk-4.0/
         ├── gtk.css
         ├── gtk-dark.css
+        ├── base/                           # vendored adw-gtk3 + bridge.css
         ├── gtk-adart-unclaimed-bloom.css   # palette (generated)
         └── widgets.css
 
@@ -35,6 +37,20 @@ gimp/
 ```
 
 `input/` and `docs/` are ignored by Git and kept only as local notes.
+
+## Layers
+
+Each `gtk.css` imports, in order:
+
+1. `base/` – vendored [adw-gtk3](https://github.com/lassekongo83/adw-gtk3)
+   v6.5 dark (LGPL-2.1, see `base/LICENSE-adw-gtk3`). It styles every GTK
+   widget using libadwaita colour names.
+2. `gtk-adart-unclaimed-bloom.css` – the palette, which redefines those names.
+3. `base/bridge.css` – maps adw-gtk3 names the palette does not emit.
+4. `widgets/` / `apps/` (GTK3) or `widgets.css` (GTK4) – the ADArt look.
+
+Do not edit files under `base/` other than `bridge.css`; to update adw-gtk3,
+replace them from a newer release.
 
 ## Palette
 
@@ -139,12 +155,12 @@ GTK3:
 GTK4:
 
 - shared generated palette
-- conservative plain GTK4 widget CSS
+- adw-gtk3 base plus plain GTK4 widget CSS
 - useful for apps like `pavucontrol`
 - not expected to fully style libadwaita apps
 
 ## Current Notes
 
-The theme deliberately avoids copying the entire Adwaita source for now. It is a
-proper installable theme package built from the old override prototype, with the
-CSS organized so generated palette and widget rules stay separate.
+Full widget coverage comes from the vendored adw-gtk3 base. The ADArt widget
+layer only needs to cover what should look different from it, so the
+generated palette, the base and the custom rules stay separate.
