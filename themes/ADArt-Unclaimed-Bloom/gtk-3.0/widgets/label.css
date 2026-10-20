@@ -17,6 +17,12 @@ dialog label {
   color: @window_fg_color;
 }
 
+/* Accent buttons set their own fg (dark on solid accent); let labels follow it */
+button:checked label,
+button.suggested-action label {
+  color: inherit;
+}
+
 label:disabled,
 button:disabled label,
 row:disabled label,

@@ -31,9 +31,9 @@ infobar.info box {
 }
 
 infobar.info {
-  background-color: mix(@surface_container_color, @tn_blue, 0.26);
+  background-color: mix(@surface_container_color, @link_color, 0.26);
   color: @window_fg_color;
-  border-color: mix(@borders, @tn_blue, 0.58);
+  border-color: mix(@borders, @link_color, 0.58);
 }
 
 infobar.warning revealer,

@@ -4,14 +4,14 @@
  *
  * Loaded by themes/ADArt-Unclaimed-Bloom/gtk-3.0/gtk.css:
  *
- *   @import url("matugen-generated.css");
+ *   @import url("gtk-adart-unclaimed-bloom.css");
  *   @import url("apps/thunar.css");
  *
  * Actual Thunar sidebar nodes seen in GTK Inspector:
  *   ThunarShortcutsPane.sidebar.frame.shortcuts-pane
  *     ThunarShortcutsView.view
  *
- * Color variables used here are defined in matugen-generated.css.
+ * Color variables used here are defined in gtk-adart-unclaimed-bloom.css.
  * This file should apply colors, not invent them. We are trying to become
  * civilized. Slowly. With CSS. So, perhaps not that civilized.
  */

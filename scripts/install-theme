@@ -7,9 +7,29 @@ target_dir="${XDG_DATA_HOME:-$HOME/.local/share}/themes/ADArt-Unclaimed-Bloom"
 gimp_source_dir="$repo_dir/gimp/ADArt-Unclaimed-Bloom"
 gimp_target_dir="${XDG_CONFIG_HOME:-$HOME/.config}/GIMP/3.2/themes/ADArt-Unclaimed-Bloom"
 
+palette_file=gtk-adart-unclaimed-bloom.css
+
+# Unclaimed Bloom plants the live palette straight into the installed theme.
+# Keep it across reinstalls so the repo copy does not revert it.
+saved_dir=$(mktemp -d)
+trap 'rm -rf -- "$saved_dir"' EXIT
+for gtk_dir in gtk-3.0 gtk-4.0; do
+  if [ -f "$target_dir/$gtk_dir/$palette_file" ]; then
+    mkdir -p "$saved_dir/$gtk_dir"
+    cp -a -- "$target_dir/$gtk_dir/$palette_file" "$saved_dir/$gtk_dir/"
+  fi
+done
+
 mkdir -p "$(dirname -- "$target_dir")"
 rm -rf -- "$target_dir"
 cp -a -- "$source_dir" "$target_dir"
+
+for gtk_dir in gtk-3.0 gtk-4.0; do
+  if [ -f "$saved_dir/$gtk_dir/$palette_file" ]; then
+    cp -a -- "$saved_dir/$gtk_dir/$palette_file" "$target_dir/$gtk_dir/"
+    printf '%s\n' "Kept planted palette $gtk_dir/$palette_file"
+  fi
+done
 
 printf '%s\n' "Installed ADArt-Unclaimed-Bloom to $target_dir"
 printf '%s\n' 'Set gtk-theme-name=ADArt-Unclaimed-Bloom in your GTK settings to use it.'

@@ -188,3 +188,34 @@ dialog buttonbox button.destructive-action:checked,
   color: @destructive_fg_color;
   border-color: @destructive_bg_color;
 }
+
+/* Link buttons render as plain link text, not bordered buttons */
+
+button.link,
+button.link:hover,
+button.link:active,
+button.link:checked,
+button.link:backdrop {
+  background-color: transparent;
+  background-image: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+button.link,
+button.link > label {
+  color: @link_color;
+}
+
+button.link:hover > label {
+  color: mix(@link_color, @window_fg_color, 0.22);
+}
+
+button.link:visited,
+button.link:visited > label {
+  color: @link_visited_color;
+}
+
+button.link:backdrop > label {
+  color: mix(@link_color, @window_bg_color, 0.25);
+}
