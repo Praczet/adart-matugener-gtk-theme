@@ -26,3 +26,73 @@ popover:backdrop,
 popover.background:backdrop {
   background-color: alpha(@popover_bg_color, 0.61);
 }
+
+/*
+ * SWT draws its own text in trees and paints its own button backgrounds, so
+ * the main theme's "dark text on solid accent" pairs come apart in DBeaver:
+ * the accent stays, the dark text does not (or the other way round).
+ * Here selection and accent states use a dark tint with light text instead.
+ */
+
+/* Navigator / result trees: DBeaver paints white labels on GTK's selection bg. */
+treeview:selected,
+treeview:selected:focus,
+treeview.view:selected,
+treeview.view:selected:focus,
+.view:selected,
+.view:selected:focus {
+  background-color: @selected_bg_color;
+  color: @window_fg_color;
+}
+
+/* Default / focused / pressed buttons: SWT replaces the solid accent fill,
+ * which left accent_fg (dark) text on a dark button. Keep the accent border
+ * as the marker, make the text readable. */
+button.default,
+button:focus,
+button:active,
+button:checked,
+button.suggested-action {
+  background-color: alpha(@accent_bg_color, 0.22);
+  color: @window_fg_color;
+  border-color: alpha(@accent_bg_color, 0.72);
+}
+
+button.default label,
+button:focus label,
+button:active label,
+button:checked label,
+button.suggested-action label {
+  color: @window_fg_color;
+}
+
+/* Unchecked boxes: the main theme's outline (#4c566a-ish) nearly vanishes on
+ * DBeaver's dark dialogs. A light, translucent border reads on any bloom. */
+check,
+radio {
+  background-color: alpha(@window_fg_color, 0.06);
+  border-color: alpha(@window_fg_color, 0.55);
+}
+
+check:hover,
+radio:hover {
+  background-color: alpha(@window_fg_color, 0.10);
+  border-color: @accent_bg_color;
+}
+
+/* The tick is a symbolic icon recoloured with `color`. The main theme uses
+ * dark accent_fg on a solid accent fill, but SWT paints the box dark, so the
+ * tick vanished. Accent tick on a faint accent tint reads either way. */
+check:checked,
+check:indeterminate,
+radio:checked {
+  background-color: alpha(@accent_bg_color, 0.22);
+  color: @accent_bg_color;
+  border-color: @accent_bg_color;
+}
+
+check:disabled,
+radio:disabled {
+  background-color: transparent;
+  border-color: alpha(@window_fg_color, 0.25);
+}
